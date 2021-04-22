@@ -155,11 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE69C80B26314387001656CB /* Build configuration list for PBXNativeTarget "StudyApp" */;
 			buildPhases = (
-				CE69C814263148B2001656CB /* Run Script */,
 				9086B439EBB4B7CBFEAC420A /* [CP] Check Pods Manifest.lock */,
+				CE69C814263148B2001656CB /* Run Script */,
 				CE69C7F026314385001656CB /* Sources */,
 				CE69C7F126314385001656CB /* Frameworks */,
 				CE69C7F226314385001656CB /* Resources */,
+				565F6BB8F80665218AE4F6F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +218,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		565F6BB8F80665218AE4F6F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyApp/Pods-StudyApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyApp/Pods-StudyApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StudyApp/Pods-StudyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9086B439EBB4B7CBFEAC420A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

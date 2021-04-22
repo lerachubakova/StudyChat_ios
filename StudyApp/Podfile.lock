@@ -1,16 +1,20 @@
 PODS:
+  - SkyFloatingLabelTextField (4.0.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
+  - SkyFloatingLabelTextField (= 4.0.0)
   - SwiftLint (= 0.43.1)
 
 SPEC REPOS:
   trunk:
+    - SkyFloatingLabelTextField
     - SwiftLint
 
 SPEC CHECKSUMS:
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 6568f80229bd363cc3569de18330991e054798bf
+PODFILE CHECKSUM: ff365456ac9e30eb619c6eeae7f765fa2c8f13c9
 
 COCOAPODS: 1.10.1

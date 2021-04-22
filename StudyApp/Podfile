@@ -6,5 +6,6 @@ target 'StudyApp' do
   use_frameworks!
 
   # Pods for StudyApp
+  pod 'SkyFloatingLabelTextField','4.0.0'
   pod 'SwiftLint','0.43.1'
 end
