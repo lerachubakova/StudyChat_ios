@@ -10,14 +10,28 @@ import UIKit
 
 class SignInVC: UIViewController {
 
+    @IBOutlet weak private var biometricButton: UIButton!
+    @IBOutlet weak private var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //useBiometrics()
+        // useBiometrics()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // print("ViewWillAppear")
+    }
+    override func viewDidLayoutSubviews() {
+        
+        biometricButton.setImage( UIImage(named: "icTouchID"), for: .normal)
+       
+        biometricButton.imageEdgeInsets = UIEdgeInsets(top: 3, left: 0, bottom: 3, right: 80)
+        
+        signUpButton.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        signUpButton.layer.cornerRadius = signUpButton.frame.height / 4
+        signUpButton.layer.borderWidth = 1.5
+        signUpButton.layer.borderColor = UIColor.white.cgColor
     }
     
     private func useBiometrics() {
@@ -36,6 +50,13 @@ class SignInVC: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction private func signInWithBiometrics(_ sender: UIButton) {
+        useBiometrics()
+    }
+    
+    @IBAction private func signUp(_ sender: UIButton) {
     }
     
 }
