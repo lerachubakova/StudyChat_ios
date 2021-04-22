@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BD1E3429FA54897EBC26913B /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7BB329C5FEFDD56CEF9CF6 /* Pods_StudyApp.framework */; };
 		CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */; };
-		CE5B99672631B2C600625C38 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99662631B2C600625C38 /* SignInVC.swift */; };
 		CE69C7F826314385001656CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F726314385001656CB /* AppDelegate.swift */; };
 		CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F926314385001656CB /* SceneDelegate.swift */; };
 		CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C7FD26314385001656CB /* SignIn.storyboard */; };
@@ -24,7 +23,6 @@
 		581475F1D49FD75E5286F42B /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8B7BB329C5FEFDD56CEF9CF6 /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
-		CE5B99662631B2C600625C38 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		CE69C7F426314385001656CB /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69C7F726314385001656CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE69C7F926314385001656CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				CE69C7FD26314385001656CB /* SignIn.storyboard */,
-				CE5B99662631B2C600625C38 /* SignInVC.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -303,7 +300,6 @@
 			files = (
 				CEED04FF263161AB008AC20B /* MainVC.swift in Sources */,
 				CE69C7F826314385001656CB /* AppDelegate.swift in Sources */,
-				CE5B99672631B2C600625C38 /* SignInVC.swift in Sources */,
 				CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */,
 				CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */,
 				CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */,
