@@ -15,6 +15,8 @@
 		CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE69C80026314385001656CB /* StudyApp.xcdatamodeld */; };
 		CE69C80426314387001656CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80326314387001656CB /* Assets.xcassets */; };
 		CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80526314387001656CB /* LaunchScreen.storyboard */; };
+		CEED04FC26316196008AC20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEED04FB26316196008AC20B /* Main.storyboard */; };
+		CEED04FF263161AB008AC20B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED04FE263161AB008AC20B /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		CE69C80326314387001656CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE69C80626314387001656CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE69C80826314387001656CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEED04FB26316196008AC20B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CEED04FE263161AB008AC20B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		DE39D048EB4520A585FAD5FE /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +108,7 @@
 			children = (
 				CE69C80526314387001656CB /* LaunchScreen.storyboard */,
 				CE69C81B26314B25001656CB /* SignIn */,
+				CEED04FA263160E9008AC20B /* TabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -115,6 +120,15 @@
 				CE69C7FD26314385001656CB /* SignIn.storyboard */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CEED04FA263160E9008AC20B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEED04FB26316196008AC20B /* Main.storyboard */,
+				CEED04FE263161AB008AC20B /* MainVC.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		D22491D837C2D04297A8C78C /* Pods */ = {
@@ -196,6 +210,7 @@
 				CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */,
 				CE69C80426314387001656CB /* Assets.xcassets in Resources */,
 				CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */,
+				CEED04FC26316196008AC20B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE69C7FC26314385001656CB /* SIgnInVC.swift in Sources */,
+				CEED04FF263161AB008AC20B /* MainVC.swift in Sources */,
 				CE69C7F826314385001656CB /* AppDelegate.swift in Sources */,
 				CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */,
 				CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */,
