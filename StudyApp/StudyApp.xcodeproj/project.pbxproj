@@ -10,13 +10,13 @@
 		BD1E3429FA54897EBC26913B /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7BB329C5FEFDD56CEF9CF6 /* Pods_StudyApp.framework */; };
 		CE69C7F826314385001656CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F726314385001656CB /* AppDelegate.swift */; };
 		CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F926314385001656CB /* SceneDelegate.swift */; };
-		CE69C7FC26314385001656CB /* SIgnInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7FB26314385001656CB /* SIgnInVC.swift */; };
 		CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C7FD26314385001656CB /* SignIn.storyboard */; };
 		CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE69C80026314385001656CB /* StudyApp.xcdatamodeld */; };
 		CE69C80426314387001656CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80326314387001656CB /* Assets.xcassets */; };
 		CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80526314387001656CB /* LaunchScreen.storyboard */; };
 		CEED04FC26316196008AC20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEED04FB26316196008AC20B /* Main.storyboard */; };
 		CEED04FF263161AB008AC20B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED04FE263161AB008AC20B /* MainVC.swift */; };
+		CEED050526316936008AC20B /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED050326316936008AC20B /* SignInVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,6 @@
 		CE69C7F426314385001656CB /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69C7F726314385001656CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE69C7F926314385001656CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE69C7FB26314385001656CB /* SIgnInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInVC.swift; sourceTree = "<group>"; };
 		CE69C7FE26314385001656CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
 		CE69C80126314385001656CB /* StudyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudyApp.xcdatamodel; sourceTree = "<group>"; };
 		CE69C80326314387001656CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,6 +32,7 @@
 		CE69C80826314387001656CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEED04FB26316196008AC20B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CEED04FE263161AB008AC20B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		CEED050326316936008AC20B /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		DE39D048EB4520A585FAD5FE /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,8 +116,8 @@
 		CE69C81B26314B25001656CB /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				CE69C7FB26314385001656CB /* SIgnInVC.swift */,
 				CE69C7FD26314385001656CB /* SignIn.storyboard */,
+				CEED050326316936008AC20B /* SignInVC.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -264,11 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE69C7FC26314385001656CB /* SIgnInVC.swift in Sources */,
 				CEED04FF263161AB008AC20B /* MainVC.swift in Sources */,
 				CE69C7F826314385001656CB /* AppDelegate.swift in Sources */,
 				CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */,
 				CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */,
+				CEED050526316936008AC20B /* SignInVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
