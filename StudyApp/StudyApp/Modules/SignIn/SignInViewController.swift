@@ -87,7 +87,6 @@ class SignInViewController: UIViewController {
         photoImageView.addGestureRecognizer(recognizer)
     }
     
-    
     private func getImage(from sourceType: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let imagePicker = UIImagePickerController()
