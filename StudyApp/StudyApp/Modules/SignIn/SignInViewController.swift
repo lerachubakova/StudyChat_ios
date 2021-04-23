@@ -14,16 +14,18 @@ class SignInViewController: UIViewController {
     @IBOutlet weak private var biometricButton: UIButton!
     @IBOutlet weak private var signUpButton: UIButton!
     @IBOutlet weak private var registrationView: UIView!
+    @IBOutlet weak private var photoImageView: UIImageView!
+    
+    private var wasPhotoChanged: Bool = false
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // useBiometrics()
+        addRecognizerToPhotoImageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // print("ViewWillAppear")
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,6 +67,16 @@ class SignInViewController: UIViewController {
         signUpButton.customButton()
     }
     
+    private func addRecognizerToPhotoImageView() {
+        let recognizer = UITapGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(addPhotoToProfile(_:)))
+        photoImageView.addGestureRecognizer(recognizer)
+    }
+    
+    private func photoIsHere() {
+        self.wasPhotoChanged = true
+    }
+    
     // MARK: - @IBActions
     @IBAction private func signInWithBiometrics(_ sender: UIButton) {
         useBiometrics()
@@ -72,6 +84,28 @@ class SignInViewController: UIViewController {
     
     @IBAction private func signUp(_ sender: UIButton) {
    
+    }
+    
+    @IBAction private func addPhotoToProfile(_ gestureRecognizer: UITapGestureRecognizer ) {
+        let title = wasPhotoChanged ? "Изменить фото" : "Добавить фото"
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        
+        let fromLibraryAction = UIAlertAction(title: "Выбрать из галереи", style: .default, handler: {_ in
+            self.photoIsHere()
+        })
+        
+        let makePhotoAction = UIAlertAction(title: "Сделать фото", style: .default, handler: {_ in
+            self.photoIsHere()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(fromLibraryAction)
+        alert.addAction(makePhotoAction)
+        alert.addAction(cancelAction)
+        alert.pruneNegativeWidthConstraints()
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
