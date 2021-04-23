@@ -79,6 +79,7 @@ class SignInViewController: UIViewController {
     
     private func photoIsHere() {
         self.wasPhotoChanged = true
+        photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
     }
     
     private func getImage(from sourceType: UIImagePickerController.SourceType) {
