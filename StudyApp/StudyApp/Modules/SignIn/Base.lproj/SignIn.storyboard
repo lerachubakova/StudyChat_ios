@@ -101,6 +101,12 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textErrorColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="8P0-pJ-oEE"/>
@@ -139,6 +145,12 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                         <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textErrorColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -229,9 +241,11 @@
                     </view>
                     <connections>
                         <outlet property="biometricButton" destination="uWf-sU-kKQ" id="MQf-HX-lqr"/>
+                        <outlet property="nameTextField" destination="K2P-YY-fGK" id="m1X-ZC-fEX"/>
                         <outlet property="photoImageView" destination="CZ2-E5-e3n" id="t27-CI-6EE"/>
                         <outlet property="registrationView" destination="ENq-l2-qmr" id="QLj-7E-RNy"/>
                         <outlet property="signUpButton" destination="Rd0-9H-9fJ" id="RA7-2s-8qV"/>
+                        <outlet property="surnameTextField" destination="Crh-ra-xvj" id="dGg-UC-u9X"/>
                         <segue destination="8GJ-RB-PHJ" kind="show" identifier="toMainSegue" animates="NO" id="Ak3-Uh-6uc"/>
                     </connections>
                 </viewController>

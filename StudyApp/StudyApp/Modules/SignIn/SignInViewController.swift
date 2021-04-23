@@ -7,6 +7,7 @@
 
 import LocalAuthentication
 import UIKit
+import SkyFloatingLabelTextField
 
 class SignInViewController: UIViewController {
 
@@ -16,12 +17,20 @@ class SignInViewController: UIViewController {
     @IBOutlet weak private var registrationView: UIView!
     @IBOutlet weak private var photoImageView: UIImageView!
     
+    @IBOutlet weak private var surnameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak private var nameTextField: SkyFloatingLabelTextField!
+    
     private var wasPhotoChanged: Bool = false
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addRecognizerToPhotoImageView()
+        addTargetsToTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,10 +44,6 @@ class SignInViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     // MARK: - Logic
@@ -71,16 +76,17 @@ class SignInViewController: UIViewController {
         signUpButton.customButton()
     }
     
+    private func addTargetsToTextFields() {
+        surnameTextField.addTarget(self, action: #selector(checkTextFieldData(_:)), for: .allEditingEvents)
+        nameTextField.addTarget(self, action: #selector(checkTextFieldData(_:)), for: .allEditingEvents)
+    }
+    
     private func addRecognizerToPhotoImageView() {
         let recognizer = UITapGestureRecognizer()
         recognizer.addTarget(self, action: #selector(addPhotoToProfile(_:)))
         photoImageView.addGestureRecognizer(recognizer)
     }
     
-    private func photoIsHere() {
-        self.wasPhotoChanged = true
-        photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
-    }
     
     private func getImage(from sourceType: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
@@ -116,17 +122,60 @@ class SignInViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func isFullNameRight() -> Bool {
+        if let surname = surnameTextField.text,
+           let name = nameTextField.text {
+            if surname.isEmpty || name.isEmpty { return false }
+        }
+        if let surnameError = surnameTextField.errorMessage,
+           let nameError = nameTextField.errorMessage {
+            if !(surnameError.isEmpty) || !(nameError.isEmpty) { return false }
+        }
+        return true
+    }
+    
+    func showAlertError(by reason: String) {
+        let alert = UIAlertController(title: "", message: reason, preferredStyle: .alert)
+        let attributedString = NSAttributedString(string: "Ошибка", attributes: [ NSAttributedString.Key.foregroundColor: UIColor.black
+        ])
+        alert.setValue(attributedString, forKey: "attributedTitle")
+        alert.view.tintColor = UIColor.black
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - @IBActions
     @IBAction private func signInWithBiometrics(_ sender: UIButton) {
         useBiometrics()
     }
     
     @IBAction private func signUp(_ sender: UIButton) {
-        
+        if isFullNameRight() && wasPhotoChanged {
+            self.performSegue(withIdentifier: "toMainSegue", sender: nil)
+        } else {
+            showAlertError(by: "Для завершения регистрации корректно заполните все поля.")
+        }
     }
     
     @IBAction private func addPhotoToProfile(_ gestureRecognizer: UITapGestureRecognizer ) {
         showChoiceAlert()
+    }
+    
+    @IBAction private func checkTextFieldData(_ textField: SkyFloatingLabelTextField) {
+        let allowLetters: ClosedRange<Character> = "А"..."я"
+        func error() { textField.errorMessage = "Недопустимый символ" }
+        func right() { textField.errorMessage = "" }
+        
+        if let text = textField.text {
+            if text.isEmpty { right(); return}
+            for symb in text {
+                if !(allowLetters.contains(symb) ) {
+                    error()
+                    return
+                } else { right() }
+            }
+        }
     }
     
 }
@@ -144,8 +193,9 @@ extension SignInViewController: UINavigationControllerDelegate {}
 extension SignInViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
+            photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
             photoImageView.image = image
-            self.photoIsHere()
+            self.wasPhotoChanged = true
         }
         dismiss(animated: true)
     }
