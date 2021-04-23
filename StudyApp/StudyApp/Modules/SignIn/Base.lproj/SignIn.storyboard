@@ -246,10 +246,10 @@
     </scenes>
     <designables>
         <designable name="Crh-ra-xvj">
-            <size key="intrinsicContentSize" width="152" height="34"/>
+            <size key="intrinsicContentSize" width="258.66666666666669" height="39.220703125"/>
         </designable>
         <designable name="K2P-YY-fGK">
-            <size key="intrinsicContentSize" width="114" height="34"/>
+            <size key="intrinsicContentSize" width="258.66666666666669" height="39.220703125"/>
         </designable>
     </designables>
     <resources>
