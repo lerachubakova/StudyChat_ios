@@ -37,6 +37,10 @@ class SignInViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Logic
     private func useBiometrics() {
         let context = LAContext()
@@ -77,25 +81,28 @@ class SignInViewController: UIViewController {
         self.wasPhotoChanged = true
     }
     
-    // MARK: - @IBActions
-    @IBAction private func signInWithBiometrics(_ sender: UIButton) {
-        useBiometrics()
+    private func getImage(from sourceType: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = sourceType
+            imagePicker.mediaTypes = ["public.image"]
+            imagePicker.allowsEditing = true
+            imagePicker.modalPresentationStyle = .fullScreen
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
-    @IBAction private func signUp(_ sender: UIButton) {
-   
-    }
-    
-    @IBAction private func addPhotoToProfile(_ gestureRecognizer: UITapGestureRecognizer ) {
+    private func showChoiceAlert() {
         let title = wasPhotoChanged ? "Изменить фото" : "Добавить фото"
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
         let fromLibraryAction = UIAlertAction(title: "Выбрать из галереи", style: .default, handler: {_ in
-            self.photoIsHere()
+            self.getImage(from: .photoLibrary)
         })
         
         let makePhotoAction = UIAlertAction(title: "Сделать фото", style: .default, handler: {_ in
-            self.photoIsHere()
+            self.getImage(from: .camera)
         })
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -108,6 +115,19 @@ class SignInViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - @IBActions
+    @IBAction private func signInWithBiometrics(_ sender: UIButton) {
+        useBiometrics()
+    }
+    
+    @IBAction private func signUp(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction private func addPhotoToProfile(_ gestureRecognizer: UITapGestureRecognizer ) {
+        showChoiceAlert()
+    }
+    
 }
 
 // MARK: - Extensions
@@ -115,5 +135,17 @@ extension SignInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension SignInViewController: UINavigationControllerDelegate {}
+
+extension SignInViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            photoImageView.image = image
+            self.photoIsHere()
+        }
+        dismiss(animated: true)
     }
 }
