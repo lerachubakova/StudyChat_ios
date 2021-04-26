@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE32737A2632ACA5009CBE23 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3273792632ACA5009CBE23 /* UIAlertControllerExtensions.swift */; };
+		CE4D77D02636FE4E00571EE2 /* FullNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */; };
 		CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */; };
 		CE5B996F2631BA3600625C38 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B996E2631BA3600625C38 /* SignInViewController.swift */; };
 		CE6347D3263686EE001F4B15 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347D2263686EE001F4B15 /* HomeVC.swift */; };
@@ -33,6 +34,7 @@
 		B76E948609DA3945F58990B9 /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA240A02717D9B925DCCEE20 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		CE3273792632ACA5009CBE23 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNameVC.swift; sourceTree = "<group>"; };
 		CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		CE5B996E2631BA3600625C38 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6347D2263686EE001F4B15 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 				B76E948609DA3945F58990B9 /* Pods_StudyApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE4D77CE2636FE0100571EE2 /* Parents */ = {
+			isa = PBXGroup;
+			children = (
+				CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */,
+			);
+			path = Parents;
 			sourceTree = "<group>";
 		};
 		CE5B995F2631AEFC00625C38 /* Utils */ = {
@@ -155,6 +165,7 @@
 				CE69C81726314A02001656CB /* Application */,
 				CE69C81926314A9E001656CB /* CoreData */,
 				CE69C81A26314ACF001656CB /* Modules */,
+				CE4D77CE2636FE0100571EE2 /* Parents */,
 				CE69C81826314A5C001656CB /* Resources */,
 				CE5B995F2631AEFC00625C38 /* Utils */,
 				CE6347E62636A46B001F4B15 /* Views */,
@@ -374,6 +385,7 @@
 				CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */,
 				CE6347D626368758001F4B15 /* SettingsVC.swift in Sources */,
 				CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */,
+				CE4D77D02636FE4E00571EE2 /* FullNameVC.swift in Sources */,
 				CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

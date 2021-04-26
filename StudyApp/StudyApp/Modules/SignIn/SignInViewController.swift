@@ -9,7 +9,7 @@ import LocalAuthentication
 import UIKit
 import SkyFloatingLabelTextField
 
-class SignInViewController: UIViewController {
+class SignInViewController: FullNameVC {
 
     // MARK: - @IBOutlets
     @IBOutlet weak private var biometricButton: UIButton!
@@ -40,10 +40,6 @@ class SignInViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureAppearance()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     // MARK: - Logic
@@ -121,29 +117,6 @@ class SignInViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func isFullNameRight() -> Bool {
-        if let surname = surnameTextField.text,
-           let name = nameTextField.text {
-            if surname.isEmpty || name.isEmpty { return false }
-        }
-        if let surnameError = surnameTextField.errorMessage,
-           let nameError = nameTextField.errorMessage {
-            if !(surnameError.isEmpty) || !(nameError.isEmpty) { return false }
-        }
-        return true
-    }
-    
-    func showAlertError(by reason: String) {
-        let alert = UIAlertController(title: "", message: reason, preferredStyle: .alert)
-        let attributedString = NSAttributedString(string: "Ошибка", attributes: [ NSAttributedString.Key.foregroundColor: UIColor.black
-        ])
-        alert.setValue(attributedString, forKey: "attributedTitle")
-        alert.view.tintColor = UIColor.black
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
     // MARK: - @IBActions
     @IBAction private func unwindToSignInFromHome(_ segue: UIStoryboardSegue) {
         guard segue.identifier == "unwindToSignInVCSegue" else {return}
@@ -155,7 +128,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction private func signUp(_ sender: UIButton) {
-        if isFullNameRight() && wasPhotoChanged {
+        if isFullNameRight(surnameTextField, nameTextField) && wasPhotoChanged {
             self.performSegue(withIdentifier: "toMainSegue", sender: nil)
         } else {
             showAlertError(by: "Для завершения регистрации корректно заполните все поля.")
@@ -166,32 +139,9 @@ class SignInViewController: UIViewController {
         showChoiceAlert()
     }
     
-    @IBAction private func checkTextFieldData(_ textField: SkyFloatingLabelTextField) {
-        let allowLetters: ClosedRange<Character> = "А"..."я"
-        func error() { textField.errorMessage = "Недопустимый символ" }
-        func right() { textField.errorMessage = "" }
-        
-        if let text = textField.text {
-            if text.isEmpty { right(); return}
-            for symb in text {
-                if !(allowLetters.contains(symb) ) {
-                    error()
-                    return
-                } else { right() }
-            }
-        }
-    }
-    
 }
 
 // MARK: - Extensions
-extension SignInViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
-
 extension SignInViewController: UINavigationControllerDelegate {}
 
 extension SignInViewController: UIImagePickerControllerDelegate {

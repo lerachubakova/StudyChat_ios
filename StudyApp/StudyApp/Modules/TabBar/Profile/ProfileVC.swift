@@ -8,7 +8,7 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class ProfileVC: UIViewController {
+class ProfileVC: FullNameVC {
     
     // MARK: - @IBOutlets
     @IBOutlet weak private var backButton: UIButton!
@@ -22,8 +22,8 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-   //     surnameTextField.addTarget(self, action: #selector(checkTextFieldData(_:)), for: .allEditingEvents)
-   //     nameTextField.addTarget(self, action: #selector(checkTextFieldData(_:)), for: .allEditingEvents)
+        surnameTextField.addTarget(self, action: #selector(checkTextFieldData(_:)), for: .allEditingEvents)
+        nameTextField.addTarget(self, action: #selector(checkTextFieldData(_:)), for: .allEditingEvents)
     }
     
     override func viewDidLayoutSubviews() {
@@ -31,10 +31,6 @@ class ProfileVC: UIViewController {
         backButton.customButton()
         editButton.customButton()
         changePhotoButton.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,18 +42,26 @@ class ProfileVC: UIViewController {
     // MARK: - Logic
     private func tappedEdit() {
         editButton.setTitle("Save", for: .normal)
+        
         photoImageView.isUserInteractionEnabled = true
         surnameTextField.isEnabled = true
         nameTextField.isEnabled = true
         changePhotoButton.isHidden = false
+        
+        surnameTextField.errorMessage = ""
+        nameTextField.errorMessage = ""
     }
     
     private func tappedSave() {
-        editButton.setTitle("Edit", for: .normal)
-        photoImageView.isUserInteractionEnabled = false
-        surnameTextField.isEnabled = false
-        nameTextField.isEnabled = false
-        changePhotoButton.isHidden = true
+        if isFullNameRight(surnameTextField, nameTextField) {
+            editButton.setTitle("Edit", for: .normal)
+            photoImageView.isUserInteractionEnabled = false
+            surnameTextField.isEnabled = false
+            nameTextField.isEnabled = false
+            changePhotoButton.isHidden = true
+        } else {
+            showAlertError(by: "Для сохранения корректно заполните все поля.")
+        }
     }
     
     // MARK: - @IBActions
@@ -69,12 +73,5 @@ class ProfileVC: UIViewController {
             default: break
             }
         }
-    }
-}
-    // MARK: - Extensions
-extension ProfileVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
