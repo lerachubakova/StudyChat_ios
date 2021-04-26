@@ -9,6 +9,8 @@ import UIKit
 
 class SettingTVCell: UITableViewCell {
 
+    static let identifier = "SettingCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +20,10 @@ class SettingTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "SettingTVCell", bundle: nil)
     }
     
 }

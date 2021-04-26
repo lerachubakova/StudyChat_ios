@@ -25,6 +25,8 @@ class SettingsVC: UIViewController {
         self.settingsTableView.delegate = self
         self.settingsTableView.backgroundColor = .clear
         self.settingsTableView.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 0)
+        self.settingsTableView.register(ProfileTVCell.nib(), forCellReuseIdentifier: ProfileTVCell.identifier)
+        self.settingsTableView.register(SettingTVCell.nib(), forCellReuseIdentifier: SettingTVCell.identifier)
     }
 
 }
@@ -48,10 +50,20 @@ extension SettingsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  UITableViewCell()
         cell.selectionStyle = .none
+        cell.backgroundColor = .clear
+        
         switch indexPath.section {
-        case 0:  cell.backgroundColor = .black
-        case 1:  cell.backgroundColor = .white
-        default: cell.backgroundColor = .clear
+        case 0:
+            if let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileTVCell.identifier) as? ProfileTVCell {
+                // cell.configure(profile)
+                return profileCell
+            }
+        case 1:
+            if let settingCell = tableView.dequeueReusableCell(withIdentifier: SettingTVCell.identifier) as? SettingTVCell {
+                // cell.configure(profile)
+                return settingCell
+            }
+        default: return cell
         }
         return cell
     }

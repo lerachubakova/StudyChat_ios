@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileTVCell: UITableViewCell {
 
+    static let identifier = "ProfileCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +20,10 @@ class ProfileTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "ProfileTVCell", bundle: nil)
     }
     
 }
