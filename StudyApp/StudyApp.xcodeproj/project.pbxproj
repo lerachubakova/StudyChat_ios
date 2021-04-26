@@ -17,6 +17,7 @@
 		CE6347EC2636A4B9001F4B15 /* SettingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6347EA2636A4B9001F4B15 /* SettingTVCell.xib */; };
 		CE6347F12636A4D3001F4B15 /* ProfileTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347EF2636A4D3001F4B15 /* ProfileTVCell.swift */; };
 		CE6347F22636A4D3001F4B15 /* ProfileTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6347F02636A4D3001F4B15 /* ProfileTVCell.xib */; };
+		CE6347F62636C93A001F4B15 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347F52636C93A001F4B15 /* Constants.swift */; };
 		CE69C7F826314385001656CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F726314385001656CB /* AppDelegate.swift */; };
 		CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F926314385001656CB /* SceneDelegate.swift */; };
 		CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C7FD26314385001656CB /* SignIn.storyboard */; };
@@ -38,6 +39,7 @@
 		CE6347EA2636A4B9001F4B15 /* SettingTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTVCell.xib; sourceTree = "<group>"; };
 		CE6347EF2636A4D3001F4B15 /* ProfileTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVCell.swift; sourceTree = "<group>"; };
 		CE6347F02636A4D3001F4B15 /* ProfileTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTVCell.xib; sourceTree = "<group>"; };
+		CE6347F52636C93A001F4B15 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE69C7F426314385001656CB /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69C7F726314385001656CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE69C7F926314385001656CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		CE5B995F2631AEFC00625C38 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CE6347F52636C93A001F4B15 /* Constants.swift */,
 				CE5B99602631AF0D00625C38 /* Extensions */,
 			);
 			path = Utils;
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE69C7F826314385001656CB /* AppDelegate.swift in Sources */,
+				CE6347F62636C93A001F4B15 /* Constants.swift in Sources */,
 				CE6347F12636A4D3001F4B15 /* ProfileTVCell.swift in Sources */,
 				CE6347EB2636A4B9001F4B15 /* SettingTVCell.swift in Sources */,
 				CE6347D3263686EE001F4B15 /* HomeVC.swift in Sources */,

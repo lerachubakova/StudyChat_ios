@@ -49,18 +49,18 @@ extension SettingsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  UITableViewCell()
-        cell.selectionStyle = .none
-        cell.backgroundColor = .clear
-        
+           
         switch indexPath.section {
         case 0:
             if let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileTVCell.identifier) as? ProfileTVCell {
+                profileCell.selectionStyle = .none
                 profileCell.configure()
                 return profileCell
             }
         case 1:
             if let settingCell = tableView.dequeueReusableCell(withIdentifier: SettingTVCell.identifier) as? SettingTVCell {
-                settingCell.configure()
+                settingCell.selectionStyle = .none
+                settingCell.configure(setting: settingsList[indexPath.row])
                 return settingCell
             }
         default: return cell

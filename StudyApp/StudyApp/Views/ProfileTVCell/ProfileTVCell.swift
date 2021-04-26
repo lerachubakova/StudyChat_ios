@@ -32,6 +32,7 @@ class ProfileTVCell: UITableViewCell {
     
     func configure() {
         myBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+        photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
     }
     
 }
