@@ -1,20 +1,20 @@
 //
-//  MainVC.swift
+//  SettingsVC.swift
 //  StudyApp
 //
-//  Created by user on 4/22/21.
+//  Created by user on 4/26/21.
 //
 
 import UIKit
 
-class MainVC: UIViewController {
+class SettingsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
     /*
     // MARK: - Navigation
 

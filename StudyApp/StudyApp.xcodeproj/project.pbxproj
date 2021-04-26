@@ -11,6 +11,8 @@
 		CE32737A2632ACA5009CBE23 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3273792632ACA5009CBE23 /* UIAlertControllerExtensions.swift */; };
 		CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */; };
 		CE5B996F2631BA3600625C38 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B996E2631BA3600625C38 /* SignInViewController.swift */; };
+		CE6347D3263686EE001F4B15 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347D2263686EE001F4B15 /* HomeVC.swift */; };
+		CE6347D626368758001F4B15 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347D526368758001F4B15 /* SettingsVC.swift */; };
 		CE69C7F826314385001656CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F726314385001656CB /* AppDelegate.swift */; };
 		CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F926314385001656CB /* SceneDelegate.swift */; };
 		CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C7FD26314385001656CB /* SignIn.storyboard */; };
@@ -18,7 +20,6 @@
 		CE69C80426314387001656CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80326314387001656CB /* Assets.xcassets */; };
 		CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80526314387001656CB /* LaunchScreen.storyboard */; };
 		CEED04FC26316196008AC20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEED04FB26316196008AC20B /* Main.storyboard */; };
-		CEED04FF263161AB008AC20B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED04FE263161AB008AC20B /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		CE3273792632ACA5009CBE23 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		CE5B996E2631BA3600625C38 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CE6347D2263686EE001F4B15 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CE6347D526368758001F4B15 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		CE69C7F426314385001656CB /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69C7F726314385001656CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE69C7F926314385001656CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		CE69C80626314387001656CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE69C80826314387001656CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEED04FB26316196008AC20B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		CEED04FE263161AB008AC20B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E0048F74D4BCFACA56B77879 /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,7 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				CEED04FB26316196008AC20B /* Main.storyboard */,
-				CEED04FE263161AB008AC20B /* MainVC.swift */,
+				CE6347D2263686EE001F4B15 /* HomeVC.swift */,
+				CE6347D526368758001F4B15 /* SettingsVC.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -304,11 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEED04FF263161AB008AC20B /* MainVC.swift in Sources */,
 				CE69C7F826314385001656CB /* AppDelegate.swift in Sources */,
+				CE6347D3263686EE001F4B15 /* HomeVC.swift in Sources */,
 				CE32737A2632ACA5009CBE23 /* UIAlertControllerExtensions.swift in Sources */,
 				CE5B996F2631BA3600625C38 /* SignInViewController.swift in Sources */,
 				CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */,
+				CE6347D626368758001F4B15 /* SettingsVC.swift in Sources */,
 				CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */,
 				CE69C80226314385001656CB /* StudyApp.xcdatamodeld in Sources */,
 			);
