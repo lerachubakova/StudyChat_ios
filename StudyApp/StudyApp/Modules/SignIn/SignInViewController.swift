@@ -145,6 +145,11 @@ class SignInViewController: UIViewController {
     }
     
     // MARK: - @IBActions
+    @IBAction private func unwindToSignInFromHome(_ segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindToSignInVCSegue" else {return}
+        guard segue.destination as? SettingsVC != nil else {return}
+    }
+    
     @IBAction private func signInWithBiometrics(_ sender: UIButton) {
         useBiometrics()
     }

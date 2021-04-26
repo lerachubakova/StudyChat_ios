@@ -28,6 +28,18 @@ class SettingsVC: UIViewController {
         self.settingsTableView.register(ProfileTVCell.nib(), forCellReuseIdentifier: ProfileTVCell.identifier)
         self.settingsTableView.register(SettingTVCell.nib(), forCellReuseIdentifier: SettingTVCell.identifier)
     }
+    
+    private func doSetting(_ setting: String) {
+        switch setting {
+        case "Profile": print("profile")
+        case "Log Out": logOut()
+        default: break
+        }
+    }
+    
+    private func logOut() {
+        performSegue(withIdentifier: "unwindToSignInVCSegue", sender: nil)
+    }
 
 }
 
@@ -72,6 +84,14 @@ extension SettingsVC: UITableViewDataSource {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 1))
         footerView.backgroundColor = UIColor(red: 43/255, green: 46/255, blue: 52/255, alpha: 1)
         return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0: break
+        case 1: doSetting(settingsList[indexPath.row].0)
+        default: break
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

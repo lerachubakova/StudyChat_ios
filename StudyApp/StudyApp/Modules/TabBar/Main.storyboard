@@ -50,6 +50,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DJR-zl-725" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="fill" id="h5u-4D-zmJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1082455292" green="0.12295127660000001" blue="0.14966550470000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.5023285296414286" green="0.59096292142487306" blue="0.48577147529991671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,9 +105,11 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Q69-BY-QBJ"/>
                     <connections>
                         <outlet property="settingsTableView" destination="bHa-2A-key" id="cCw-WU-dFa"/>
+                        <segue destination="JOi-qw-88t" kind="unwind" identifier="unwindToSignInVCSegue" animates="NO" unwindAction="unwindToSignInFromHome:" id="hox-b7-c2k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki7-Du-n5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JOi-qw-88t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="505.79710144927537" y="493.52678571428567"/>
         </scene>
