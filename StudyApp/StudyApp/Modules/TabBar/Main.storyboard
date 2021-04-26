@@ -51,7 +51,7 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="fill" id="h5u-4D-zmJ">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.025284688919999999" green="0.037413056940000002" blue="0.061544127759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1082455292" green="0.12295127660000001" blue="0.14966550470000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.5023285296414286" green="0.59096292142487306" blue="0.48577147529991671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -78,6 +78,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bHa-2A-key">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k22-ez-R36"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,14 +90,21 @@
                             <constraint firstItem="ZOO-h2-4g0" firstAttribute="trailing" secondItem="s8m-Bx-8yR" secondAttribute="trailing" id="0YQ-rb-YPq"/>
                             <constraint firstItem="1iT-A3-G7u" firstAttribute="leading" secondItem="s8m-Bx-8yR" secondAttribute="leading" id="3p5-1j-Tsv"/>
                             <constraint firstItem="1iT-A3-G7u" firstAttribute="bottom" secondItem="k22-ez-R36" secondAttribute="bottom" id="FxN-yG-Wu5"/>
+                            <constraint firstItem="bHa-2A-key" firstAttribute="leading" secondItem="s8m-Bx-8yR" secondAttribute="leading" id="Gpc-Hc-2LL"/>
+                            <constraint firstAttribute="trailing" secondItem="bHa-2A-key" secondAttribute="trailing" id="KLu-sl-6Uv"/>
                             <constraint firstItem="1iT-A3-G7u" firstAttribute="top" secondItem="s8m-Bx-8yR" secondAttribute="top" id="NZY-4c-CR4"/>
                             <constraint firstItem="ZOO-h2-4g0" firstAttribute="bottom" secondItem="s8m-Bx-8yR" secondAttribute="bottom" id="OJ3-Q4-SGu"/>
                             <constraint firstItem="1iT-A3-G7u" firstAttribute="trailing" secondItem="s8m-Bx-8yR" secondAttribute="trailing" id="V4j-0t-2IK"/>
                             <constraint firstItem="ZOO-h2-4g0" firstAttribute="leading" secondItem="s8m-Bx-8yR" secondAttribute="leading" id="noy-xu-9Vz"/>
+                            <constraint firstItem="bHa-2A-key" firstAttribute="top" secondItem="k22-ez-R36" secondAttribute="top" id="nvL-km-X9X"/>
                             <constraint firstItem="ZOO-h2-4g0" firstAttribute="top" secondItem="s8m-Bx-8yR" secondAttribute="top" id="wnS-p5-ou3"/>
+                            <constraint firstItem="bHa-2A-key" firstAttribute="bottom" secondItem="k22-ez-R36" secondAttribute="bottom" id="yjZ-Dv-6Ca"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Q69-BY-QBJ"/>
+                    <connections>
+                        <outlet property="settingsTableView" destination="bHa-2A-key" id="cCw-WU-dFa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki7-Du-n5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
