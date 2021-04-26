@@ -55,12 +55,12 @@ extension SettingsVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileTVCell.identifier) as? ProfileTVCell {
-                // cell.configure(profile)
+                profileCell.configure()
                 return profileCell
             }
         case 1:
             if let settingCell = tableView.dequeueReusableCell(withIdentifier: SettingTVCell.identifier) as? SettingTVCell {
-                // cell.configure(profile)
+                // settingCell.configure()
                 return settingCell
             }
         default: return cell

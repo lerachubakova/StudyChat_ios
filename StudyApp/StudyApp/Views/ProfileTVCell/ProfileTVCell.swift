@@ -9,6 +9,10 @@ import UIKit
 
 class ProfileTVCell: UITableViewCell {
 
+    @IBOutlet weak private var myBackgroundView: UIView!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     static let identifier = "ProfileCell"
     
     override func awakeFromNib() {
@@ -24,6 +28,10 @@ class ProfileTVCell: UITableViewCell {
     
     static func nib() -> UINib {
         return UINib(nibName: "ProfileTVCell", bundle: nil)
+    }
+    
+    func configure() {
+        myBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
     }
     
 }
