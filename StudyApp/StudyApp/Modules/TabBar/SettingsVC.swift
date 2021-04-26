@@ -31,7 +31,7 @@ class SettingsVC: UIViewController {
     
     private func doSetting(_ setting: String) {
         switch setting {
-        case "Profile": print("profile")
+        case "Profile": performSegue(withIdentifier: "toProfileSegue", sender: nil)
         case "Log Out": logOut()
         default: break
         }

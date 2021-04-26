@@ -18,6 +18,8 @@
 		CE6347F12636A4D3001F4B15 /* ProfileTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347EF2636A4D3001F4B15 /* ProfileTVCell.swift */; };
 		CE6347F22636A4D3001F4B15 /* ProfileTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6347F02636A4D3001F4B15 /* ProfileTVCell.xib */; };
 		CE6347F62636C93A001F4B15 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347F52636C93A001F4B15 /* Constants.swift */; };
+		CE6347FD2636E78F001F4B15 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6347FC2636E78F001F4B15 /* ProfileVC.swift */; };
+		CE6348002636E7A4001F4B15 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6347FF2636E7A4001F4B15 /* Profile.storyboard */; };
 		CE69C7F826314385001656CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F726314385001656CB /* AppDelegate.swift */; };
 		CE69C7FA26314385001656CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C7F926314385001656CB /* SceneDelegate.swift */; };
 		CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C7FD26314385001656CB /* SignIn.storyboard */; };
@@ -40,6 +42,8 @@
 		CE6347EF2636A4D3001F4B15 /* ProfileTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVCell.swift; sourceTree = "<group>"; };
 		CE6347F02636A4D3001F4B15 /* ProfileTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTVCell.xib; sourceTree = "<group>"; };
 		CE6347F52636C93A001F4B15 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE6347FC2636E78F001F4B15 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		CE6347FF2636E7A4001F4B15 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		CE69C7F426314385001656CB /* StudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69C7F726314385001656CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE69C7F926314385001656CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 				CE6347EA2636A4B9001F4B15 /* SettingTVCell.xib */,
 			);
 			path = SettingTVCell;
+			sourceTree = "<group>";
+		};
+		CE6347FB2636E73C001F4B15 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE6347FF2636E7A4001F4B15 /* Profile.storyboard */,
+				CE6347FC2636E78F001F4B15 /* ProfileVC.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		CE69C7EB26314385001656CB = {
@@ -199,6 +212,7 @@
 				CEED04FB26316196008AC20B /* Main.storyboard */,
 				CE6347D2263686EE001F4B15 /* HomeVC.swift */,
 				CE6347D526368758001F4B15 /* SettingsVC.swift */,
+				CE6347FB2636E73C001F4B15 /* Profile */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -277,6 +291,7 @@
 				CE69C80426314387001656CB /* Assets.xcassets in Resources */,
 				CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */,
 				CE6347EC2636A4B9001F4B15 /* SettingTVCell.xib in Resources */,
+				CE6348002636E7A4001F4B15 /* Profile.storyboard in Resources */,
 				CEED04FC26316196008AC20B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6347FD2636E78F001F4B15 /* ProfileVC.swift in Sources */,
 				CE69C7F826314385001656CB /* AppDelegate.swift in Sources */,
 				CE6347F62636C93A001F4B15 /* Constants.swift in Sources */,
 				CE6347F12636A4D3001F4B15 /* ProfileTVCell.swift in Sources */,

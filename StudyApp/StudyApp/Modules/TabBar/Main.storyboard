@@ -106,12 +106,23 @@
                     <connections>
                         <outlet property="settingsTableView" destination="bHa-2A-key" id="cCw-WU-dFa"/>
                         <segue destination="JOi-qw-88t" kind="unwind" identifier="unwindToSignInVCSegue" animates="NO" unwindAction="unwindToSignInFromHome:" id="hox-b7-c2k"/>
+                        <segue destination="fFz-Jh-8Nw" kind="show" identifier="toProfileSegue" id="lAX-Fb-ekt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki7-Du-n5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="JOi-qw-88t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="505.79710144927537" y="493.52678571428567"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="3h8-aj-uuF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="fFz-Jh-8Nw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2LM-eH-fQj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOt-ST-hH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072" y="494"/>
         </scene>
     </scenes>
     <resources>
