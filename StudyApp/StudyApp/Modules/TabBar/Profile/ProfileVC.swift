@@ -34,8 +34,7 @@ class ProfileVC: FullNameVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        surnameTextField.text = "Фамилия"
-        nameTextField.text = "Имя"
+        super.viewWillAppear(animated)
     }
     
     // MARK: - Logic

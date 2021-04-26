@@ -99,6 +99,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Фамилия"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="BSI-xe-Y3q" id="61x-oy-m2u"/>
@@ -113,7 +114,6 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Введите имя"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
@@ -144,6 +144,8 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Имя"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Введите имя"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="BSI-xe-Y3q" id="Q0r-6F-FuJ"/>
