@@ -60,7 +60,7 @@ extension SettingsVC: UITableViewDataSource {
             }
         case 1:
             if let settingCell = tableView.dequeueReusableCell(withIdentifier: SettingTVCell.identifier) as? SettingTVCell {
-                // settingCell.configure()
+                settingCell.configure()
                 return settingCell
             }
         default: return cell

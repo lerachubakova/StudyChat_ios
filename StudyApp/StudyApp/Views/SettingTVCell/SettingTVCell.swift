@@ -9,6 +9,8 @@ import UIKit
 
 class SettingTVCell: UITableViewCell {
 
+    @IBOutlet weak private var settingIconImageView: UIImageView!
+    @IBOutlet weak private var nameLabel: UILabel!
     static let identifier = "SettingCell"
     
     override func awakeFromNib() {
@@ -24,6 +26,10 @@ class SettingTVCell: UITableViewCell {
     
     static func nib() -> UINib {
         return UINib(nibName: "SettingTVCell", bundle: nil)
+    }
+    
+    func configure() {
+        
     }
     
 }
