@@ -36,7 +36,6 @@ class ProfileVC: FullNameVC {
     override func viewWillAppear(_ animated: Bool) {
         surnameTextField.text = "Фамилия"
         nameTextField.text = "Имя"
-        photoImageView.image = UIImage(named: "icProfile")
     }
     
     // MARK: - Logic
@@ -73,5 +72,59 @@ class ProfileVC: FullNameVC {
             default: break
             }
         }
+    }
+    
+    @IBAction private func changePhoto(_ sender: UIButton) {
+        showChoiceAlert()
+    }
+}
+
+extension ProfileVC {
+    private func changeImage(_ imageView: UIImageView, _ image: UIImage) {
+        imageView.image = image
+    }
+    
+    private func getImage(from sourceType: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = sourceType
+            imagePicker.mediaTypes = ["public.image"]
+            imagePicker.allowsEditing = true
+            imagePicker.modalPresentationStyle = .fullScreen
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    private func showChoiceAlert() {
+        let alert = UIAlertController(title: "Изменить фото", message: nil, preferredStyle: .actionSheet)
+        
+        let fromLibraryAction = UIAlertAction(title: "Выбрать из галереи", style: .default, handler: {_ in
+            self.getImage(from: .photoLibrary)
+        })
+        
+        let makePhotoAction = UIAlertAction(title: "Сделать фото", style: .default, handler: {_ in
+            self.getImage(from: .camera)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(fromLibraryAction)
+        alert.addAction(makePhotoAction)
+        alert.addAction(cancelAction)
+        alert.pruneNegativeWidthConstraints()
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ProfileVC: UINavigationControllerDelegate {}
+
+extension ProfileVC: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            changeImage(photoImageView, image)
+        }
+        dismiss(animated: true)
     }
 }

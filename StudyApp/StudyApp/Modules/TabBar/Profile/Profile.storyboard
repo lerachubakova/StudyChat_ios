@@ -46,7 +46,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HS9-76-9c5">
                                 <rect key="frame" x="13" y="219" width="388" height="358"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icUser" translatesAutoresizingMaskIntoConstraints="NO" id="upK-2x-HfV">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icProfile" translatesAutoresizingMaskIntoConstraints="NO" id="upK-2x-HfV">
                                         <rect key="frame" x="0.0" y="92.5" width="143.5" height="143"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -175,6 +175,9 @@
                                         <state key="normal" title="Изменить">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changePhoto:" destination="BSI-xe-Y3q" eventType="touchUpInside" id="64Q-cU-BPR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -216,7 +219,7 @@
                         <outlet property="changePhotoButton" destination="TaW-L7-JbX" id="eCh-je-JzW"/>
                         <outlet property="editButton" destination="Ypu-WY-bBG" id="F8G-yG-Cia"/>
                         <outlet property="nameTextField" destination="YQS-lz-WaG" id="Enk-gb-KVE"/>
-                        <outlet property="photoImageView" destination="upK-2x-HfV" id="URX-96-5YQ"/>
+                        <outlet property="photoImageView" destination="upK-2x-HfV" id="g0M-rj-512"/>
                         <outlet property="surnameTextField" destination="azN-tf-uCZ" id="PuO-g3-98B"/>
                     </connections>
                 </viewController>
@@ -235,7 +238,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="icUser" width="100" height="100"/>
+        <image name="icProfile" width="100" height="100"/>
         <image name="imgSignIn" width="3840" height="2400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
