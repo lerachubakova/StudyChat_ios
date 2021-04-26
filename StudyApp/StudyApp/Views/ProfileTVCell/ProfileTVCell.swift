@@ -10,8 +10,8 @@ import UIKit
 class ProfileTVCell: UITableViewCell {
 
     @IBOutlet weak private var myBackgroundView: UIView!
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak private var photoImageView: UIImageView!
+    @IBOutlet weak private var nameLabel: UILabel!
     
     static let identifier = "ProfileCell"
     
