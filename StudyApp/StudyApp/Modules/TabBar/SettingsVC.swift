@@ -9,17 +9,20 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    // MARK: - @IBOutlets
     @IBOutlet private weak var settingsTableView: UITableView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
     }
 
+    // MARK: - Logic
     private func configureTableView () {
         self.settingsTableView.dataSource = self
         self.settingsTableView.delegate = self
@@ -40,9 +43,16 @@ class SettingsVC: UIViewController {
     private func logOut() {
         performSegue(withIdentifier: "unwindToSignInVCSegue", sender: nil)
     }
+    
+    // MARK: - @IBActions
+    @IBAction private func unwindToSettingsFromProfile(_ segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindToSettingsVCSegue" else {return}
+        guard segue.destination as? ProfileVC != nil else {return}
+    }
 
 }
 
+// MARK: - Extensions
 extension SettingsVC: UITableViewDelegate {}
 
 extension SettingsVC: UITableViewDataSource {

@@ -106,7 +106,7 @@
                     <connections>
                         <outlet property="settingsTableView" destination="bHa-2A-key" id="cCw-WU-dFa"/>
                         <segue destination="JOi-qw-88t" kind="unwind" identifier="unwindToSignInVCSegue" animates="NO" unwindAction="unwindToSignInFromHome:" id="hox-b7-c2k"/>
-                        <segue destination="fFz-Jh-8Nw" kind="show" identifier="toProfileSegue" id="lAX-Fb-ekt"/>
+                        <segue destination="fFz-Jh-8Nw" kind="show" identifier="toProfileSegue" animates="NO" id="lAX-Fb-ekt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki7-Du-n5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
