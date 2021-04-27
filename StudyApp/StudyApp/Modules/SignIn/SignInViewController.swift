@@ -31,6 +31,8 @@ class SignInViewController: FullNameVC {
         super.viewDidLoad()
         addRecognizerToPhotoImageView()
         addTargetsToTextFields()
+        // registrationView.isHidden = true
+        useBiometrics()
     }
     
     override func viewWillAppear(_ animated: Bool) {

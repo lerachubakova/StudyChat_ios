@@ -23,7 +23,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh7-WB-VgH">
                                 <rect key="frame" x="0.0" y="115" width="320" height="28"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Валерия Чубакова">
+                                    <fragment content="Имя Фамилия">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <font key="NSFont" size="19" name="SFMono-Semibold"/>
@@ -33,7 +33,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icUser" translatesAutoresizingMaskIntoConstraints="NO" id="IyB-AP-J6K">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icProfile" translatesAutoresizingMaskIntoConstraints="NO" id="IyB-AP-J6K">
                                 <rect key="frame" x="110" y="10" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="16a-7z-Syv"/>
@@ -70,6 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icUser" width="100" height="100"/>
+        <image name="icProfile" width="100" height="100"/>
     </resources>
 </document>
