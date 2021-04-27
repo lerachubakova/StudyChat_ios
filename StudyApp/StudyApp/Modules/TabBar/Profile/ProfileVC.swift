@@ -52,11 +52,27 @@ class ProfileVC: FullNameVC {
     
     private func tappedSave() {
         if isFullNameRight(surnameTextField, nameTextField) {
-            editButton.setTitle("Edit", for: .normal)
-            photoImageView.isUserInteractionEnabled = false
-            surnameTextField.isEnabled = false
-            nameTextField.isEnabled = false
-            changePhotoButton.isHidden = true
+            self.surnameTextField.lineColor = .green
+            self.nameTextField.lineColor = .green
+            self.editButton.layer.borderColor = UIColor.green.cgColor
+            
+            self.surnameTextField.lineHeight = 1.1
+            self.nameTextField.lineHeight = 1.1
+            UIView.animate(withDuration: 0.5,
+                           animations: {
+                            self.surnameTextField.lineHeight = 1
+                            self.nameTextField.lineHeight = 1
+                           },
+                           completion: {_ in
+                self.nameTextField.lineColor = .white
+                self.surnameTextField.lineColor = .white
+                self.editButton.layer.borderColor = UIColor.white.cgColor
+                self.photoImageView.isUserInteractionEnabled = false
+                self.surnameTextField.isEnabled = false
+                self.nameTextField.isEnabled = false
+                self.changePhotoButton.isHidden = true
+                self.editButton.setTitle("Edit", for: .normal)
+            })
         } else {
             showAlertError(by: "Для сохранения корректно заполните все поля.")
         }

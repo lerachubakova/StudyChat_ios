@@ -9,8 +9,23 @@ import UIKit
 
 class HomeVC: UIViewController {
 
+    @IBOutlet weak private var navigationBar: UINavigationBar!
+    @IBOutlet weak private var profileImageView: UIImageView!
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        navigationBar.transparent()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileImageView.image = UIImage(named: "imgSomeUser")
+
     }
     
     override func viewDidLoad() {
@@ -19,14 +34,4 @@ class HomeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -37,6 +37,7 @@ class SignInViewController: FullNameVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        photoImageView.image = UIImage(named: "icUser")
     }
     
     override func viewDidLayoutSubviews() {

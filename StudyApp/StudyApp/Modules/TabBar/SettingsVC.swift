@@ -28,6 +28,7 @@ class SettingsVC: UIViewController {
         self.settingsTableView.delegate = self
         self.settingsTableView.backgroundColor = .clear
         self.settingsTableView.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 0)
+        self.settingsTableView.separatorColor = separatorColor
         self.settingsTableView.register(ProfileTVCell.nib(), forCellReuseIdentifier: ProfileTVCell.identifier)
         self.settingsTableView.register(SettingTVCell.nib(), forCellReuseIdentifier: SettingTVCell.identifier)
     }
@@ -92,8 +93,12 @@ extension SettingsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 1))
-        footerView.backgroundColor = UIColor(red: 43/255, green: 46/255, blue: 52/255, alpha: 1)
+        footerView.backgroundColor = separatorColor
         return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
