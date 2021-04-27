@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DJR-zl-725">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,23 +14,26 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="bC3-2x-CuU" customClass="HomeVC" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ASo-AK-0oP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="ql4-1Y-wc4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyp-sf-Pxd" userLabel="Dark Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8z9-I9-oz6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="88"/>
                                 <color key="backgroundColor" red="0.2006359398" green="0.2138875127" blue="0.24322295190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ex3-Mu-vUk">
-                                <rect key="frame" x="0.0" y="49" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="B6F-Nw-Lgh"/>
+                                </constraints>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.5435990691" green="0.63430303340000005" blue="0.52456217999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,10 +43,9 @@
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSomeUser" translatesAutoresizingMaskIntoConstraints="NO" id="ZRG-6x-4Z7">
-                                <rect key="frame" x="360" y="49" width="44" height="44"/>
+                                <rect key="frame" x="387" y="47" width="38" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZRG-6x-4Z7" secondAttribute="height" multiplier="1:1" id="9jR-7y-aHg"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="Thp-bg-S5j"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -51,13 +53,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pyp-sf-Pxd" firstAttribute="trailing" secondItem="ASo-AK-0oP" secondAttribute="trailing" id="0tN-YX-8hJ"/>
-                            <constraint firstAttribute="trailing" secondItem="ZRG-6x-4Z7" secondAttribute="trailing" constant="10" id="31z-ba-Gz2"/>
+                            <constraint firstItem="ex3-Mu-vUk" firstAttribute="trailing" secondItem="ZRG-6x-4Z7" secondAttribute="trailing" constant="3" id="31z-ba-Gz2"/>
                             <constraint firstItem="Pyp-sf-Pxd" firstAttribute="bottom" secondItem="xcH-8m-QIP" secondAttribute="bottom" id="40G-Y3-6zC"/>
                             <constraint firstItem="ql4-1Y-wc4" firstAttribute="leading" secondItem="ASo-AK-0oP" secondAttribute="leading" id="B8B-u3-92B"/>
-                            <constraint firstItem="ZRG-6x-4Z7" firstAttribute="height" secondItem="ASo-AK-0oP" secondAttribute="height" multiplier="0.0491071" priority="999" id="BkY-bP-pmh"/>
-                            <constraint firstItem="ZRG-6x-4Z7" firstAttribute="top" secondItem="xcH-8m-QIP" secondAttribute="top" constant="5" id="Ftp-YK-rd7"/>
+                            <constraint firstItem="ZRG-6x-4Z7" firstAttribute="top" secondItem="ex3-Mu-vUk" secondAttribute="top" constant="3" id="Ftp-YK-rd7"/>
                             <constraint firstItem="ql4-1Y-wc4" firstAttribute="trailing" secondItem="ASo-AK-0oP" secondAttribute="trailing" id="LmJ-zz-1jC"/>
-                            <constraint firstItem="ex3-Mu-vUk" firstAttribute="top" secondItem="xcH-8m-QIP" secondAttribute="top" constant="5" id="OCE-We-nxC"/>
+                            <constraint firstItem="ex3-Mu-vUk" firstAttribute="top" secondItem="xcH-8m-QIP" secondAttribute="top" id="OCE-We-nxC"/>
+                            <constraint firstItem="ZRG-6x-4Z7" firstAttribute="bottom" secondItem="ex3-Mu-vUk" secondAttribute="bottom" constant="-3" id="P0C-4m-Xlk"/>
                             <constraint firstItem="ex3-Mu-vUk" firstAttribute="trailing" secondItem="ASo-AK-0oP" secondAttribute="trailing" id="V0L-Gs-ZEm"/>
                             <constraint firstItem="8z9-I9-oz6" firstAttribute="leading" secondItem="ASo-AK-0oP" secondAttribute="leading" id="YGF-GF-awZ"/>
                             <constraint firstItem="ql4-1Y-wc4" firstAttribute="bottom" secondItem="ASo-AK-0oP" secondAttribute="bottom" id="a3Y-kT-4In"/>
@@ -67,7 +69,6 @@
                             <constraint firstItem="8z9-I9-oz6" firstAttribute="top" secondItem="ASo-AK-0oP" secondAttribute="top" id="inY-a6-4eq"/>
                             <constraint firstItem="ex3-Mu-vUk" firstAttribute="leading" secondItem="ASo-AK-0oP" secondAttribute="leading" id="l47-oJ-g44"/>
                             <constraint firstItem="Pyp-sf-Pxd" firstAttribute="top" secondItem="ASo-AK-0oP" secondAttribute="top" id="mlO-p8-vfa"/>
-                            <constraint firstItem="ex3-Mu-vUk" firstAttribute="bottom" secondItem="ZRG-6x-4Z7" secondAttribute="bottom" constant="5" id="pAS-Vd-04e"/>
                             <constraint firstItem="ex3-Mu-vUk" firstAttribute="bottom" secondItem="8z9-I9-oz6" secondAttribute="bottom" id="s2M-Dl-jMr"/>
                         </constraints>
                     </view>
@@ -106,18 +107,18 @@
             <objects>
                 <viewController id="Azs-w0-vvK" customClass="SettingsVC" customModule="StudyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s8m-Bx-8yR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="ZOO-h2-4g0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1iT-A3-G7u" userLabel="Dark Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bHa-2A-key">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
