@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: BaseVC {
 
     // MARK: - @IBOutlets
     @IBOutlet weak private var myBackgroundImage: UIImageView!
@@ -43,10 +43,6 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addKeyboardObservers()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     // MARK: - Logic

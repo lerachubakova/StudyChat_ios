@@ -8,11 +8,7 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class FullNameVC: UIViewController {
-       
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+class FullNameVC: BaseVC {
     
     internal func isFullNameRight(_ surnameTextField: SkyFloatingLabelTextField, _ nameTextField: SkyFloatingLabelTextField) -> Bool {
         if let surname = surnameTextField.text,
@@ -24,17 +20,6 @@ class FullNameVC: UIViewController {
             if !(surnameError.isEmpty) || !(nameError.isEmpty) { return false }
         }
         return true
-    }
-
-    internal func showAlertError(by reason: String) {
-        let alert = UIAlertController(title: "", message: reason, preferredStyle: .alert)
-        let attributedString = NSAttributedString(string: "Ошибка", attributes: [ NSAttributedString.Key.foregroundColor: UIColor.black
-        ])
-        alert.setValue(attributedString, forKey: "attributedTitle")
-        alert.view.tintColor = UIColor.black
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
     }
     
     @IBAction internal func checkTextFieldData(_ textField: SkyFloatingLabelTextField) {
