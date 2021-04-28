@@ -23,10 +23,6 @@ class HomeVC: BaseVC {
     
     private var oldElementsPositions: [CGFloat] = []
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     // MARK: - LifeCycle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

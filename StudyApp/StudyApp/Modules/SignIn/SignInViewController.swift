@@ -22,10 +22,6 @@ class SignInViewController: FullNameVC {
     
     private var wasPhotoChanged: Bool = false
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

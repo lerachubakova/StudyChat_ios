@@ -7,14 +7,10 @@
 
 import UIKit
 
-class SettingsVC: UIViewController {
+class SettingsVC: BaseVC {
 
     // MARK: - @IBOutlets
     @IBOutlet private weak var settingsTableView: UITableView!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
