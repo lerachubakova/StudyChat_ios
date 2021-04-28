@@ -70,6 +70,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.5435990691" green="0.63430303340000005" blue="0.52456217999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrow.up.doc.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="sendMessage:" destination="bC3-2x-CuU" eventType="touchDown" id="j6e-Qa-TbD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aag-UN-WnQ">
                                         <rect key="frame" x="9" y="9" width="30" height="30"/>
@@ -79,6 +82,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.5435990691" green="0.63430303340000005" blue="0.52456217999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrow.up.doc.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="addFile:" destination="bC3-2x-CuU" eventType="touchDown" id="Fvf-Ug-YKV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,12 +129,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="message.circle" catalog="system" id="2Y4-Qx-Dgq"/>
                     <connections>
+                        <outlet property="addFileButton" destination="aag-UN-WnQ" id="khn-mS-S5P"/>
                         <outlet property="messageTextConstraint" destination="mfY-Ab-k9X" id="29f-a7-xJC"/>
                         <outlet property="messageTextView" destination="wNy-vk-Fda" id="doi-HM-m1c"/>
                         <outlet property="messageView" destination="RgG-0t-smU" id="Hak-bA-lHO"/>
+                        <outlet property="myBackgroundImage" destination="ql4-1Y-wc4" id="J4H-sb-OZs"/>
                         <outlet property="navigationBar" destination="ex3-Mu-vUk" id="Umd-5h-zh6"/>
                         <outlet property="navigationBarView" destination="8z9-I9-oz6" id="NwD-xU-At0"/>
                         <outlet property="profileImageView" destination="ZRG-6x-4Z7" id="tga-m5-3Ka"/>
+                        <outlet property="sendButton" destination="HQR-TE-3WM" id="CDd-hd-IT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDM-fL-hDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
