@@ -64,6 +64,8 @@ class HomeVC: BaseVC {
     private func configureAppearance() {
         navigationBar.transparent()
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        sendButton.setPointSize(procentOfHeight: 0.9)
+        addFileButton.setPointSize(procentOfHeight: 0.9)
     }
     
     private func configureMessageTextView() {
@@ -94,11 +96,9 @@ class HomeVC: BaseVC {
     }
     
     @IBAction private func sendMessage(_ sender: UIButton) {
-        self.view.endEditing(true)
     }
     
     @IBAction private func addFile(_ sender: UIButton) {
-        self.view.endEditing(true)
     }
     
 }
@@ -129,7 +129,15 @@ extension HomeVC: UITextViewDelegate {
         if self.view.window != nil {
             if textView.textColor == placeholderColor {
                 textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+                UIView.animate(withDuration: 0.2) {
+                    self.sendButton.tintColor = .systemGray4
+                    self.sendButton.setImage(UIImage.init(systemName: "message.circle.fill"), for: .normal)
+                }
             } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.sendButton.tintColor = .white
+                    self.sendButton.setImage(UIImage.init(systemName: "location.circle.fill"), for: .normal)
+                }
                 let width = textView.frame.size.width
                 let newSize = textView.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
                 let height = newSize.height
