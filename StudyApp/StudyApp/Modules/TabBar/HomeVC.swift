@@ -40,7 +40,7 @@ class HomeVC: BaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        profileImageView.image = UIImage(named: "imgSomeUser")
+        profileImageView.image = User().getPicture()
         updateTable()
     }
     

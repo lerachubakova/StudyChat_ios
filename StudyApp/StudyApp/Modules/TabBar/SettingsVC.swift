@@ -17,6 +17,10 @@ class SettingsVC: BaseVC {
         super.viewDidLoad()
         configureTableView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateTable()
+    }
 
     // MARK: - Logic
     private func configureTableView () {
@@ -38,7 +42,14 @@ class SettingsVC: BaseVC {
     }
     
     private func logOut() {
+        userDefaults.set(false, forKey: Keys.touchID.rawValue)
         performSegue(withIdentifier: "unwindToSignInVCSegue", sender: nil)
+    }
+    
+    private func updateTable() {
+        DispatchQueue.main.async {
+            self.settingsTableView.reloadData()
+        }
     }
     
     // MARK: - @IBActions
@@ -73,7 +84,7 @@ extension SettingsVC: UITableViewDataSource {
         case 0:
             if let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileTVCell.identifier) as? ProfileTVCell {
                 profileCell.selectionStyle = .none
-                profileCell.configure()
+                profileCell.configure(by: User())
                 return profileCell
             }
         case 1:

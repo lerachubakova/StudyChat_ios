@@ -18,6 +18,8 @@ class ProfileVC: FullNameVC {
     @IBOutlet weak private var nameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak private var changePhotoButton: UIButton!
     
+    private var isEdit: Bool = false
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,17 @@ class ProfileVC: FullNameVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let user = User()
+        photoImageView.image = user.getPicture()
+        if !isEdit {
+            surnameTextField.text = user.getSurname()
+            nameTextField.text = user.getName()
+        }
     }
     
     // MARK: - Logic
     private func tappedEdit() {
+        isEdit = true
         editButton.setTitle("Save", for: .normal)
         
         photoImageView.isUserInteractionEnabled = true
@@ -52,6 +61,11 @@ class ProfileVC: FullNameVC {
     
     private func tappedSave() {
         if isFullNameRight(surnameTextField, nameTextField) {
+  
+            userDefaults.set(nameTextField.text!, forKey: Keys.name.rawValue)
+            userDefaults.set(surnameTextField.text!, forKey: Keys.surname.rawValue)
+            isEdit = false
+            
             self.surnameTextField.lineColor = .green
             self.nameTextField.lineColor = .green
             self.editButton.layer.borderColor = UIColor.green.cgColor
@@ -138,7 +152,7 @@ extension ProfileVC: UINavigationControllerDelegate {}
 extension ProfileVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
-            changeImage(photoImageView, image)
+            userDefaults.set(image.pngData(), forKey: Keys.pic.rawValue)
         }
         dismiss(animated: true)
     }

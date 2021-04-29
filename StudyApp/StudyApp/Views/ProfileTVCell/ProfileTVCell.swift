@@ -30,9 +30,11 @@ class ProfileTVCell: UITableViewCell {
         return UINib(nibName: "ProfileTVCell", bundle: nil)
     }
     
-    func configure() {
+    func configure(by user: User) {
         myBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
+        photoImageView.image = user.getPicture()
+        nameLabel.text = user.getFullName()
     }
     
 }

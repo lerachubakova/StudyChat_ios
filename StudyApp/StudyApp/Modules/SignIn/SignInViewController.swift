@@ -20,20 +20,32 @@ class SignInViewController: FullNameVC {
     @IBOutlet weak private var surnameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak private var nameTextField: SkyFloatingLabelTextField!
     
-    private var wasPhotoChanged: Bool = false
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addRecognizerToPhotoImageView()
         addTargetsToTextFields()
-        // registrationView.isHidden = true
-        useBiometrics()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        photoImageView.image = UIImage(named: "icUser")
+        registrationView.isHidden = true
+        biometricButton.isHidden = true
+     
+        if userDefaults.bool(forKey: Keys.touchID.rawValue) {
+            useBiometrics()
+            biometricButton.isHidden = false
+        } else {
+            let user = User()
+            photoImageView.image = user.getPicture()
+            if user.getFullName() != " " {
+                surnameTextField.text = user.getSurname()
+                nameTextField.text = user.getName()
+                biometricButton.isHidden = false
+            }
+            registrationView.isHidden = false
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,6 +74,7 @@ class SignInViewController: FullNameVC {
     
     private func configureAppearance() {
         registrationView.backgroundColor = UIColor.black.withAlphaComponent(0.05)
+        photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         
         biometricButton.setImage( UIImage(named: "icTouchID"), for: .normal)
         biometricButton.imageEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 74)
@@ -95,8 +108,7 @@ class SignInViewController: FullNameVC {
     }
     
     private func showChoiceAlert() {
-        let title = wasPhotoChanged ? "Изменить фото" : "Добавить фото"
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Изменить фото", message: nil, preferredStyle: .actionSheet)
         
         let fromLibraryAction = UIAlertAction(title: "Выбрать из галереи", style: .default, handler: {_ in
             self.getImage(from: .photoLibrary)
@@ -127,7 +139,10 @@ class SignInViewController: FullNameVC {
     }
     
     @IBAction private func signUp(_ sender: UIButton) {
-        if isFullNameRight(surnameTextField, nameTextField) && wasPhotoChanged {
+        if isFullNameRight(surnameTextField, nameTextField) {
+            userDefaults.set(nameTextField.text!, forKey: Keys.surname.rawValue)
+            userDefaults.set(surnameTextField.text!, forKey: Keys.name.rawValue)
+            userDefaults.set(true, forKey: Keys.touchID.rawValue)
             self.performSegue(withIdentifier: "toMainSegue", sender: nil)
         } else {
             showAlertError(by: "Для завершения регистрации корректно заполните все поля.")
@@ -146,9 +161,7 @@ extension SignInViewController: UINavigationControllerDelegate {}
 extension SignInViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
-            photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
-            photoImageView.image = image
-            self.wasPhotoChanged = true
+            userDefaults.set(image.pngData(), forKey: Keys.pic.rawValue)
         }
         dismiss(animated: true)
     }
