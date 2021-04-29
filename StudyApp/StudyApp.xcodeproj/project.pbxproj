@@ -11,6 +11,8 @@
 		CE4D77D02636FE4E00571EE2 /* FullNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */; };
 		CE53ECEC263A9AAD0097FCE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53ECEB263A9AAD0097FCE3 /* User.swift */; };
 		CE53ED01263ADF2E0097FCE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53ED00263ADF2E0097FCE3 /* Message.swift */; };
+		CE53ED07263AE8BF0097FCE3 /* MessageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53ED05263AE8BF0097FCE3 /* MessageTVCell.swift */; };
+		CE53ED08263AE8BF0097FCE3 /* MessageTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE53ED06263AE8BF0097FCE3 /* MessageTVCell.xib */; };
 		CE56BA6A26394ABB00AAC3CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56BA6926394ABB00AAC3CF /* BaseVC.swift */; };
 		CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */; };
 		CE5B996F2631BA3600625C38 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B996E2631BA3600625C38 /* SignInViewController.swift */; };
@@ -41,6 +43,8 @@
 		CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNameVC.swift; sourceTree = "<group>"; };
 		CE53ECEB263A9AAD0097FCE3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE53ED00263ADF2E0097FCE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CE53ED05263AE8BF0097FCE3 /* MessageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVCell.swift; sourceTree = "<group>"; };
+		CE53ED06263AE8BF0097FCE3 /* MessageTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTVCell.xib; sourceTree = "<group>"; };
 		CE56BA6926394ABB00AAC3CF /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		CE5B996E2631BA3600625C38 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CE53ED04263AE89B0097FCE3 /* MessageTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE53ED05263AE8BF0097FCE3 /* MessageTVCell.swift */,
+				CE53ED06263AE8BF0097FCE3 /* MessageTVCell.xib */,
+			);
+			path = MessageTVCell;
+			sourceTree = "<group>";
+		};
 		CE5B995F2631AEFC00625C38 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +139,7 @@
 		CE6347E62636A46B001F4B15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE53ED04263AE89B0097FCE3 /* MessageTVCell */,
 				CE6347E72636A474001F4B15 /* ProfileTVCell */,
 				CE6347E82636A47E001F4B15 /* SettingTVCell */,
 			);
@@ -318,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */,
+				CE53ED08263AE8BF0097FCE3 /* MessageTVCell.xib in Resources */,
 				CE6347F22636A4D3001F4B15 /* ProfileTVCell.xib in Resources */,
 				CE69C80426314387001656CB /* Assets.xcassets in Resources */,
 				CE69C7FF26314385001656CB /* SignIn.storyboard in Resources */,
@@ -401,6 +416,7 @@
 				CE6347F62636C93A001F4B15 /* Constants.swift in Sources */,
 				CE53ECEC263A9AAD0097FCE3 /* User.swift in Sources */,
 				CE56BA6A26394ABB00AAC3CF /* BaseVC.swift in Sources */,
+				CE53ED07263AE8BF0097FCE3 /* MessageTVCell.swift in Sources */,
 				CE6347F12636A4D3001F4B15 /* ProfileTVCell.swift in Sources */,
 				CE6347EB2636A4B9001F4B15 /* SettingTVCell.swift in Sources */,
 				CE6347D3263686EE001F4B15 /* HomeVC.swift in Sources */,

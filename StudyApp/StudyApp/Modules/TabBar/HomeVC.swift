@@ -89,7 +89,7 @@ class HomeVC: BaseVC {
         chatTableView.separatorColor = .white
         chatTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         chatTableView.transform = CGAffineTransform(scaleX: -1, y: -1)
-        // chatTableView.register(messageTVCell.nib(), forCellReuseIdentifier: messageTVCell.identifier)
+        chatTableView.register(MessageTVCell.nib(), forCellReuseIdentifier: MessageTVCell.identifier)
     }
 
     private func updateTable() {
@@ -195,12 +195,13 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "\(messages[messages.count - 1 - indexPath.row].text) \(messages[messages.count - 1 - indexPath.row].time)"
-        cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        cell.selectionStyle = .none
-        cell.transform = CGAffineTransform(scaleX: -1, y: -1)
-        return cell
+        if let messageCell = chatTableView.dequeueReusableCell(withIdentifier: MessageTVCell.identifier) as? MessageTVCell {
+            messageCell.selectionStyle = .none
+            messageCell.configure(by: messages[messages.count - 1 - indexPath.row])
+            messageCell.transform = CGAffineTransform(scaleX: -1, y: -1)
+            return messageCell
+        }
+        return  UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
