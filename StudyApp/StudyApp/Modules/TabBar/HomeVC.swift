@@ -122,7 +122,7 @@ class HomeVC: BaseVC {
     
     @IBAction private func sendMessage(_ sender: UIButton) {
         if messageTextView.textColor == .white {
-        messages.append(messageTextView.text)
+        messages.append(Message(type: .sender, text: messageTextView.text))
         messageTextView.text = placeholderString
         messageTextView.textColor = placeholderColor
         messageTextView.selectedTextRange = messageTextView.textRange(from: messageTextView.beginningOfDocument, to: messageTextView.beginningOfDocument)
@@ -196,7 +196,7 @@ extension HomeVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = messages[messages.count - 1 - indexPath.row]
+        cell.textLabel?.text = "\(messages[messages.count - 1 - indexPath.row].text) \(messages[messages.count - 1 - indexPath.row].time)"
         cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         cell.selectionStyle = .none
         cell.transform = CGAffineTransform(scaleX: -1, y: -1)
