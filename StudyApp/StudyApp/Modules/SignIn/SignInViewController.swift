@@ -95,39 +95,6 @@ class SignInViewController: FullNameVC {
         photoImageView.addGestureRecognizer(recognizer)
     }
     
-    private func getImage(from sourceType: UIImagePickerController.SourceType) {
-        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = sourceType
-            imagePicker.mediaTypes = ["public.image"]
-            imagePicker.allowsEditing = true
-            imagePicker.modalPresentationStyle = .fullScreen
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-    }
-    
-    private func showChoiceAlert() {
-        let alert = UIAlertController(title: "Изменить фото", message: nil, preferredStyle: .actionSheet)
-        
-        let fromLibraryAction = UIAlertAction(title: "Выбрать из галереи", style: .default, handler: {_ in
-            self.getImage(from: .photoLibrary)
-        })
-        
-        let makePhotoAction = UIAlertAction(title: "Сделать фото", style: .default, handler: {_ in
-            self.getImage(from: .camera)
-        })
-        
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        
-        alert.addAction(fromLibraryAction)
-        alert.addAction(makePhotoAction)
-        alert.addAction(cancelAction)
-        alert.pruneNegativeWidthConstraints()
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     // MARK: - @IBActions
     @IBAction private func unwindToSignInFromHome(_ segue: UIStoryboardSegue) {
         guard segue.identifier == "unwindToSignInVCSegue" else {return}
@@ -153,16 +120,4 @@ class SignInViewController: FullNameVC {
         showChoiceAlert()
     }
     
-}
-
-// MARK: - Extensions
-extension SignInViewController: UINavigationControllerDelegate {}
-
-extension SignInViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            userDefaults.set(image.pngData(), forKey: Keys.pic.rawValue)
-        }
-        dismiss(animated: true)
-    }
 }
