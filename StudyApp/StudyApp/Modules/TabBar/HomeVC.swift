@@ -18,6 +18,7 @@ class HomeVC: BaseVC {
     @IBOutlet weak private var messageView: UIView!
     @IBOutlet weak private var messageTextView: UITextView!
     @IBOutlet weak private var messageTextConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var chatTableView: UITableView!
     @IBOutlet weak private var sendButton: UIButton!
     @IBOutlet weak private var addFileButton: UIButton!
     
@@ -40,12 +41,14 @@ class HomeVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         profileImageView.image = UIImage(named: "imgSomeUser")
+        updateTable()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addKeyboardObservers()
         configureMessageTextView()
+        configureChatTableView()
     }
     
     // MARK: - Logic
@@ -77,6 +80,24 @@ class HomeVC: BaseVC {
         messageTextView.textContainerInset.right += 5.0
     }
 
+    private func configureChatTableView() {
+        chatTableView.dataSource = self
+        chatTableView.delegate = self
+        chatTableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTableView(_:))))
+        chatTableView.backgroundColor = .clear
+        chatTableView.separatorStyle = .singleLine
+        chatTableView.separatorColor = .white
+        chatTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        chatTableView.transform = CGAffineTransform(scaleX: -1, y: -1)
+        // chatTableView.register(messageTVCell.nib(), forCellReuseIdentifier: messageTVCell.identifier)
+    }
+
+    private func updateTable() {
+        DispatchQueue.main.async {
+            self.chatTableView.reloadData()
+        }
+    }
+    
     // MARK: - @IBActions
     @IBAction private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
@@ -95,7 +116,18 @@ class HomeVC: BaseVC {
         self.view.frame.origin.y = inset
     }
     
+    @IBAction private func tapTableView(_ recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction private func sendMessage(_ sender: UIButton) {
+        if messageTextView.textColor == .white {
+        messages.append(messageTextView.text)
+        messageTextView.text = placeholderString
+        messageTextView.textColor = placeholderColor
+        messageTextView.selectedTextRange = messageTextView.textRange(from: messageTextView.beginningOfDocument, to: messageTextView.beginningOfDocument)
+        }
+        updateTable()
     }
     
     @IBAction private func addFile(_ sender: UIButton) {
@@ -104,6 +136,7 @@ class HomeVC: BaseVC {
 }
 
 // MARK: - Extensions
+// MARK: - TextView
 extension HomeVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
@@ -151,5 +184,25 @@ extension HomeVC: UITextViewDelegate {
                 }
             }
         }
+    }
+}
+
+// MARK: - TableView
+extension HomeVC: UITableViewDelegate {}
+extension HomeVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = messages[messages.count - 1 - indexPath.row]
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        cell.selectionStyle = .none
+        cell.transform = CGAffineTransform(scaleX: -1, y: -1)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }

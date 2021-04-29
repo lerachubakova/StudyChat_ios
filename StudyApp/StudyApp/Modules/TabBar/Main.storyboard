@@ -17,13 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="ql4-1Y-wc4">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyp-sf-Pxd" userLabel="Dark Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="ql4-1Y-wc4">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-C4-2Qz">
+                                <rect key="frame" x="0.0" y="88" width="428" height="711"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8z9-I9-oz6">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="88"/>
                                 <color key="backgroundColor" red="0.2006359398" green="0.2138875127" blue="0.24322295190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,8 +118,11 @@
                         <constraints>
                             <constraint firstItem="Pyp-sf-Pxd" firstAttribute="trailing" secondItem="ASo-AK-0oP" secondAttribute="trailing" id="0tN-YX-8hJ"/>
                             <constraint firstItem="ex3-Mu-vUk" firstAttribute="trailing" secondItem="ZRG-6x-4Z7" secondAttribute="trailing" constant="3" id="31z-ba-Gz2"/>
+                            <constraint firstItem="xcH-8m-QIP" firstAttribute="trailing" secondItem="sEY-C4-2Qz" secondAttribute="trailing" id="3br-5q-XWS"/>
                             <constraint firstItem="Pyp-sf-Pxd" firstAttribute="bottom" secondItem="xcH-8m-QIP" secondAttribute="bottom" id="40G-Y3-6zC"/>
+                            <constraint firstItem="sEY-C4-2Qz" firstAttribute="leading" secondItem="xcH-8m-QIP" secondAttribute="leading" id="AGJ-0E-sCw"/>
                             <constraint firstItem="ql4-1Y-wc4" firstAttribute="leading" secondItem="ASo-AK-0oP" secondAttribute="leading" id="B8B-u3-92B"/>
+                            <constraint firstItem="sEY-C4-2Qz" firstAttribute="top" secondItem="ex3-Mu-vUk" secondAttribute="bottom" id="BJI-7Z-c3x"/>
                             <constraint firstItem="ZRG-6x-4Z7" firstAttribute="top" secondItem="ex3-Mu-vUk" secondAttribute="top" constant="3" id="Ftp-YK-rd7"/>
                             <constraint firstItem="ql4-1Y-wc4" firstAttribute="trailing" secondItem="ASo-AK-0oP" secondAttribute="trailing" id="LmJ-zz-1jC"/>
                             <constraint firstItem="ex3-Mu-vUk" firstAttribute="top" secondItem="xcH-8m-QIP" secondAttribute="top" id="OCE-We-nxC"/>
@@ -127,6 +134,7 @@
                             <constraint firstItem="RgG-0t-smU" firstAttribute="bottom" secondItem="xcH-8m-QIP" secondAttribute="bottom" id="geY-iB-E6N"/>
                             <constraint firstItem="8z9-I9-oz6" firstAttribute="trailing" secondItem="ASo-AK-0oP" secondAttribute="trailing" id="gr6-v5-Aii"/>
                             <constraint firstItem="ql4-1Y-wc4" firstAttribute="top" secondItem="ASo-AK-0oP" secondAttribute="top" id="hpT-bF-TSv"/>
+                            <constraint firstItem="RgG-0t-smU" firstAttribute="top" secondItem="sEY-C4-2Qz" secondAttribute="bottom" id="hwQ-vl-Utk"/>
                             <constraint firstItem="8z9-I9-oz6" firstAttribute="top" secondItem="ASo-AK-0oP" secondAttribute="top" id="inY-a6-4eq"/>
                             <constraint firstItem="ex3-Mu-vUk" firstAttribute="leading" secondItem="ASo-AK-0oP" secondAttribute="leading" id="l47-oJ-g44"/>
                             <constraint firstItem="Pyp-sf-Pxd" firstAttribute="top" secondItem="ASo-AK-0oP" secondAttribute="top" id="mlO-p8-vfa"/>
@@ -138,6 +146,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="message.circle" catalog="system" id="2Y4-Qx-Dgq"/>
                     <connections>
                         <outlet property="addFileButton" destination="aag-UN-WnQ" id="khn-mS-S5P"/>
+                        <outlet property="chatTableView" destination="sEY-C4-2Qz" id="98N-Ha-rea"/>
                         <outlet property="messageTextConstraint" destination="mfY-Ab-k9X" id="29f-a7-xJC"/>
                         <outlet property="messageTextView" destination="wNy-vk-Fda" id="doi-HM-m1c"/>
                         <outlet property="messageView" destination="RgG-0t-smU" id="Hak-bA-lHO"/>
