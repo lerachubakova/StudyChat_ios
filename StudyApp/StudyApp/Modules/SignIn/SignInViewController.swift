@@ -42,6 +42,7 @@ class SignInViewController: FullNameVC {
                 surnameTextField.text = user.getSurname()
                 nameTextField.text = user.getName()
                 biometricButton.isHidden = false
+                signUpButton.setTitle("Сменить пользователя", for: .normal)
             }
             registrationView.isHidden = false
         }
@@ -63,6 +64,7 @@ class SignInViewController: FullNameVC {
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                         self.performSegue(withIdentifier: "toMainSegue", sender: nil)
+                        userDefaults.set(true, forKey: Keys.touchID.rawValue)
                     }
                 } else {
                     guard let error = error else { return }
