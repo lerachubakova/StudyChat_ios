@@ -88,6 +88,7 @@ class HomeVC: BaseVC {
         chatTableView.separatorStyle = .none
         // chatTableView.separatorColor = .clear
         // chatTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        chatTableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         chatTableView.transform = CGAffineTransform(scaleX: -1, y: -1)
         chatTableView.register(MessageTVCell.nib(), forCellReuseIdentifier: MessageTVCell.identifier)
     }
@@ -223,5 +224,9 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
     }
 }
