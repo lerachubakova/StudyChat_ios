@@ -9,6 +9,13 @@ import UIKit
 
 class MessageTVCell: UITableViewCell {
 
+    @IBOutlet weak private var myBackgroundView: UIView!
+    @IBOutlet weak private var messageTextView: UITextView!
+    @IBOutlet weak private var timeLabel: UILabel!
+    
+    @IBOutlet weak private var timeLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var timeLabelTrailingConstraint: NSLayoutConstraint!
+
     static let identifier = "messageCell"
     
     override func awakeFromNib() {
@@ -27,7 +34,31 @@ class MessageTVCell: UITableViewCell {
     }
     
     func configure(by message: Message) {
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        timeLabel.text = dateFormatter.string(from: message.time)
+     
+        messageTextView.text = message.text
+        myBackgroundView.layer.cornerRadius = 12
+
+        switch message.type {
+        case .sender:
+            myBackgroundView.backgroundColor = .darkGray
+            myBackgroundView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        case .receiver:
+            myBackgroundView.backgroundColor = tabBarColor
+            myBackgroundView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+    
+//        messageTextView.sizeToFit()
+//
+//        if messageTextView.frame.size.height > 35.5 {
+//            timeLabelTopConstraint.constant = -10
+//            timeLabelTrailingConstraint.constant = 0
+//        } else {
+//            timeLabelTopConstraint.constant = -26
+//            timeLabelTrailingConstraint.constant = -40
+//        }
     }
     
 }

@@ -22,7 +22,7 @@ struct Message {
     
     init(type: Type, text: String) {
         self.type = type
-        self.time = Date(timeIntervalSinceNow: 3.0 * 60.0 * 60.0)
+        self.time = Date()
         self.text = text
     }
 }

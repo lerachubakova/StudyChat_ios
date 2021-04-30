@@ -85,9 +85,9 @@ class HomeVC: BaseVC {
         chatTableView.delegate = self
         chatTableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTableView(_:))))
         chatTableView.backgroundColor = .clear
-        chatTableView.separatorStyle = .singleLine
-        chatTableView.separatorColor = .white
-        chatTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        chatTableView.separatorStyle = .none
+        // chatTableView.separatorColor = .clear
+        // chatTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         chatTableView.transform = CGAffineTransform(scaleX: -1, y: -1)
         chatTableView.register(MessageTVCell.nib(), forCellReuseIdentifier: MessageTVCell.identifier)
     }
@@ -95,6 +95,13 @@ class HomeVC: BaseVC {
     private func updateTable() {
         DispatchQueue.main.async {
             self.chatTableView.reloadData()
+        }
+    }
+    
+    private func scrollTableToEnd() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(item: 0, section: 0)
+            self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
     
@@ -121,13 +128,19 @@ class HomeVC: BaseVC {
     }
     
     @IBAction private func sendMessage(_ sender: UIButton) {
-        if messageTextView.textColor == .white {
+        guard messageTextView.textColor == .white else {return}
         messages.append(Message(type: .sender, text: messageTextView.text))
         messageTextView.text = placeholderString
         messageTextView.textColor = placeholderColor
         messageTextView.selectedTextRange = messageTextView.textRange(from: messageTextView.beginningOfDocument, to: messageTextView.beginningOfDocument)
-        }
         updateTable()
+        scrollTableToEnd()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            messages.append(Message(type: .receiver, text: "Рандомное сообщение"))
+            self.updateTable()
+        }
+       
     }
     
     @IBAction private func addFile(_ sender: UIButton) {
@@ -197,8 +210,13 @@ extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let messageCell = chatTableView.dequeueReusableCell(withIdentifier: MessageTVCell.identifier) as? MessageTVCell {
             messageCell.selectionStyle = .none
-            messageCell.configure(by: messages[messages.count - 1 - indexPath.row])
-            messageCell.transform = CGAffineTransform(scaleX: -1, y: -1)
+            let message = messages[messages.count - 1 - indexPath.row]
+            messageCell.configure(by: message)
+            if message.type == .sender {
+             messageCell.transform = CGAffineTransform(scaleX: 1, y: -1)
+            } else {
+                messageCell.transform = CGAffineTransform(scaleX: -1, y: -1)
+            }
             return messageCell
         }
         return  UITableViewCell()
