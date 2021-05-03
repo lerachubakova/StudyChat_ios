@@ -106,6 +106,33 @@ class HomeVC: BaseVC {
         }
     }
     
+    private func showChoiceAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let photoOfVideoAction = UIAlertAction(title: "Фото или видео", style: .default, handler: {_ in
+           // self.getImage(from: .photoLibrary)
+        })
+        
+        let fileAction = UIAlertAction(title: "Файл", style: .default, handler: {_ in
+           // self.getImage(from: .camera)
+        })
+        
+        let _ = UIAlertAction(title: "Геопозиция", style: .default, handler: {_ in
+        })
+        
+        let _ = UIAlertAction(title: "Контакт", style: .default, handler: {_ in
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(photoOfVideoAction)
+        alert.addAction(fileAction)
+        alert.addAction(cancelAction)
+        alert.pruneNegativeWidthConstraints()
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - @IBActions
     @IBAction private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
@@ -145,6 +172,7 @@ class HomeVC: BaseVC {
     }
     
     @IBAction private func addFile(_ sender: UIButton) {
+        showChoiceAlert()
     }
     
 }
