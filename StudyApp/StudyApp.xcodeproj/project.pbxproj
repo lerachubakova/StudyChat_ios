@@ -236,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				CE69C80526314387001656CB /* LaunchScreen.storyboard */,
+				CE6347FB2636E73C001F4B15 /* Profile */,
 				CE69C81B26314B25001656CB /* SignIn */,
 				CEED04FA263160E9008AC20B /* TabBar */,
 			);
@@ -257,7 +258,6 @@
 				CEED04FB26316196008AC20B /* Main.storyboard */,
 				CE6347D2263686EE001F4B15 /* HomeVC.swift */,
 				CE6347D526368758001F4B15 /* SettingsVC.swift */,
-				CE6347FB2636E73C001F4B15 /* Profile */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
