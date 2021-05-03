@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n37-Yt-MLo">
-                        <rect key="frame" x="5" y="0.0" width="328" height="97"/>
+                        <rect key="frame" x="5" y="2.5" width="328" height="97"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et d" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZL-YF-JJT">
                                 <rect key="frame" x="2" y="0.0" width="286" height="100"/>
@@ -38,23 +38,35 @@
                                 <color key="textColor" systemColor="systemGray5Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izl-cY-Run">
+                                <rect key="frame" x="290" y="74" width="0.0" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="Noq-fa-AcW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" systemColor="systemGray5Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vqs-mP-9Hb" firstAttribute="leading" secondItem="Izl-cY-Run" secondAttribute="trailing" constant="1" id="FGz-cK-Bcu"/>
                             <constraint firstItem="CZL-YF-JJT" firstAttribute="top" secondItem="n37-Yt-MLo" secondAttribute="top" id="HfK-OV-6ii"/>
                             <constraint firstItem="CZL-YF-JJT" firstAttribute="leading" secondItem="n37-Yt-MLo" secondAttribute="leading" constant="2" id="UhD-Zp-PZc"/>
                             <constraint firstItem="vqs-mP-9Hb" firstAttribute="trailing" secondItem="n37-Yt-MLo" secondAttribute="trailing" id="agI-cY-TZS"/>
+                            <constraint firstItem="vqs-mP-9Hb" firstAttribute="bottom" secondItem="Izl-cY-Run" secondAttribute="bottom" id="b3L-ar-3oF"/>
                             <constraint firstItem="vqs-mP-9Hb" firstAttribute="top" secondItem="CZL-YF-JJT" secondAttribute="bottom" constant="-26" id="jCU-yW-0zM"/>
                             <constraint firstItem="vqs-mP-9Hb" firstAttribute="bottom" secondItem="n37-Yt-MLo" secondAttribute="bottom" constant="-4" id="kM3-3I-Kj1"/>
                             <constraint firstItem="CZL-YF-JJT" firstAttribute="trailing" secondItem="vqs-mP-9Hb" secondAttribute="trailing" constant="-40" id="oN3-s2-Oqm"/>
+                            <constraint firstItem="Izl-cY-Run" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n37-Yt-MLo" secondAttribute="leading" constant="8" id="rvA-cJ-OLm"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="n37-Yt-MLo" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-5" id="2Oe-Oi-DAD"/>
+                    <constraint firstItem="n37-Yt-MLo" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-2.5" id="2Oe-Oi-DAD"/>
                     <constraint firstItem="n37-Yt-MLo" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-50" id="Y5m-wp-qc4"/>
-                    <constraint firstItem="n37-Yt-MLo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bwU-I9-2ct"/>
+                    <constraint firstItem="n37-Yt-MLo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="bwU-I9-2ct"/>
                     <constraint firstItem="n37-Yt-MLo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="nr4-T2-Eyl"/>
                 </constraints>
             </tableViewCellContentView>
@@ -66,6 +78,7 @@
                 <outlet property="timeLabel" destination="vqs-mP-9Hb" id="AAo-Tb-ZDd"/>
                 <outlet property="timeLabelTopConstraint" destination="jCU-yW-0zM" id="djJ-Be-hoa"/>
                 <outlet property="timeLabelTrailingConstraint" destination="oN3-s2-Oqm" id="7eJ-Qw-6JE"/>
+                <outlet property="wasEditingLabel" destination="Izl-cY-Run" id="rto-7H-Vd6"/>
             </connections>
             <point key="canvasLocation" x="97.826086956521749" y="106.47321428571428"/>
         </tableViewCell>

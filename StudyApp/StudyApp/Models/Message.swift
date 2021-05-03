@@ -19,10 +19,13 @@ struct Message {
     var images: Data?
     var videos: Data?
     var files: Data?
+    var link: URL?
+    var wasEdited: Bool
     
     init(type: Type, text: String) {
         self.type = type
         self.time = Date()
         self.text = text
+        self.wasEdited = false
     }
 }

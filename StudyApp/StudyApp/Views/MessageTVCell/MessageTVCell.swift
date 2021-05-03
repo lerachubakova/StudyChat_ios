@@ -12,6 +12,7 @@ class MessageTVCell: UITableViewCell {
     @IBOutlet weak private var myBackgroundView: UIView!
     @IBOutlet weak private var messageTextView: UITextView!
     @IBOutlet weak private var timeLabel: UILabel!
+    @IBOutlet weak private var wasEditingLabel: UILabel!
     
     @IBOutlet weak private var timeLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak private var timeLabelTrailingConstraint: NSLayoutConstraint!
@@ -37,6 +38,7 @@ class MessageTVCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         timeLabel.text = dateFormatter.string(from: message.time)
+        wasEditingLabel.text = message.wasEdited ? "Ред." : ""
      
         messageTextView.text = message.text
         myBackgroundView.layer.cornerRadius = 12
@@ -44,12 +46,18 @@ class MessageTVCell: UITableViewCell {
         switch message.type {
         case .sender:
             myBackgroundView.backgroundColor = .darkGray
+            
             myBackgroundView.transform = CGAffineTransform(scaleX: -1, y: 1)
+            contentView.transform = CGAffineTransform(scaleX: -1, y: 1)
+      
         case .receiver:
             myBackgroundView.backgroundColor = tabBarColor
+            
             myBackgroundView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            contentView.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
-    
+        timeLabelTopConstraint.constant = -10
+        timeLabelTrailingConstraint.constant = 0
 //        messageTextView.sizeToFit()
 //
 //        if messageTextView.frame.size.height > 35.5 {

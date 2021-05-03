@@ -28,6 +28,8 @@ class HomeVC: BaseVC {
     private let placeholderString = "Message..."
     private let placeholderColor = UIColor.darkGray
     private let textColor = UIColor.white
+    private let editColor = UIColor.init(red: 254/255, green: 255/255, blue: 255/255, alpha: 1)
+    private var editMessageIndex = -1
     private let textViewMaxHeight: CGFloat = 141.6
 
     // MARK: - LifeCycle
@@ -88,8 +90,8 @@ class HomeVC: BaseVC {
         chatTableView.separatorStyle = .none
         // chatTableView.separatorColor = .clear
         // chatTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        chatTableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        chatTableView.transform = CGAffineTransform(scaleX: -1, y: -1)
+        chatTableView.contentInset = UIEdgeInsets(top: 2.5, left: 0, bottom: 2.5, right: 0)
+        chatTableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         chatTableView.register(MessageTVCell.nib(), forCellReuseIdentifier: MessageTVCell.identifier)
     }
 
@@ -117,10 +119,10 @@ class HomeVC: BaseVC {
            // self.getImage(from: .camera)
         })
         
-        let _ = UIAlertAction(title: "Геопозиция", style: .default, handler: {_ in
+        _ = UIAlertAction(title: "Геопозиция", style: .default, handler: {_ in
         })
         
-        let _ = UIAlertAction(title: "Контакт", style: .default, handler: {_ in
+        _ = UIAlertAction(title: "Контакт", style: .default, handler: {_ in
         })
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -156,22 +158,37 @@ class HomeVC: BaseVC {
     }
     
     @IBAction private func sendMessage(_ sender: UIButton) {
+        if messageTextView.textColor == editColor {
+            if messages[editMessageIndex].text != messageTextView.text {
+                messages[editMessageIndex].text = messageTextView.text
+                messages[editMessageIndex].wasEdited = true
+                self.view.endEditing(true)
+            }
+            editMessageIndex = -1
+            
+            messageTextView.text = placeholderString
+            messageTextView.textColor = placeholderColor
+            messageTextView.selectedTextRange = messageTextView.textRange(from: messageTextView.beginningOfDocument, to: messageTextView.beginningOfDocument)
+            updateTable()
+        } else {
+        
         guard messageTextView.textColor == .white else {return}
         messages.append(Message(type: .sender, text: messageTextView.text))
+        scrollTableToEnd()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            messages.append(Message(type: .receiver, text: "Рандомное сообщение"))
+            self.updateTable()
+        }
+     
         messageTextView.text = placeholderString
         messageTextView.textColor = placeholderColor
         messageTextView.selectedTextRange = messageTextView.textRange(from: messageTextView.beginningOfDocument, to: messageTextView.beginningOfDocument)
         updateTable()
-        scrollTableToEnd()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            messages.append(Message(type: .receiver, text: "Рандомное сообщение"))
-            self.updateTable()
         }
-       
     }
     
     @IBAction private func addFile(_ sender: UIButton) {
+        self.view.endEditing(true)
         showChoiceAlert()
     }
     
@@ -188,7 +205,7 @@ extension HomeVC: UITextViewDelegate {
         let currentText: String = textView.text
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
 
-        if updatedText.isEmpty {
+        if updatedText.isEmpty && textView.textColor != self.editColor {
             textView.text = placeholderString
             textView.textColor = placeholderColor
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
@@ -241,19 +258,49 @@ extension HomeVC: UITableViewDataSource {
             messageCell.selectionStyle = .none
             let message = messages[messages.count - 1 - indexPath.row]
             messageCell.configure(by: message)
-            if message.type == .sender {
-             messageCell.transform = CGAffineTransform(scaleX: 1, y: -1)
-            } else {
-                messageCell.transform = CGAffineTransform(scaleX: -1, y: -1)
-            }
+            messageCell.transform = CGAffineTransform(scaleX: 1, y: -1)
             return messageCell
         }
         return  UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        self.editMessageIndex = messages.count - 1 - indexPath.row
+        let configuration = UIContextMenuConfiguration(identifier: indexPath as NSIndexPath, previewProvider: nil) { _ -> UIMenu? in
+            let editAction = UIAction(title: "Edit", image: UIImage(systemName: "pencil"), identifier: nil) { _ in
+                self.messageTextView.text = messages[self.editMessageIndex].text
+                self.messageTextView.textColor = self.editColor
+                self.messageTextView.selectedTextRange = self.messageTextView.textRange(from: self.messageTextView.endOfDocument, to: self.messageTextView.endOfDocument)
+            }
+            let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash.fill"), attributes: [.destructive]) { _ in
+                messages.remove(at: self.editMessageIndex)
+                self.updateTable()
+            }
+            return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [editAction,deleteAction])
+           }
+        return configuration
     }
     
+    func tableView(_ tableView: UITableView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let indexPath = configuration.identifier as? IndexPath else { return nil }
+        guard let cell = tableView.cellForRow(at: indexPath) as? MessageTVCell else { return nil }
+        let parameters = UIPreviewParameters()
+        parameters.backgroundColor = .clear
+        let targetedPreview = UITargetedPreview(view: cell, parameters: parameters)
+        let target = UIPreviewTarget(container: targetedPreview.target.container, center: targetedPreview.target.center, transform: CGAffineTransform(scaleX: 1, y: -1))
+        return  UITargetedPreview(view: cell, parameters: parameters, target: target)
+   }
+
+    func tableView(_ tableView: UITableView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let indexPath = configuration.identifier as? IndexPath else { return nil }
+        guard let cell = tableView.cellForRow(at: indexPath) as? MessageTVCell else { return nil }
+        let parameters = UIPreviewParameters()
+        parameters.backgroundColor = .clear
+        let targetedPreview = UITargetedPreview(view: cell, parameters: parameters)
+        let target = UIPreviewTarget(container: targetedPreview.target.container, center: targetedPreview.target.center, transform: CGAffineTransform(scaleX: 1, y: -1))
+        return UITargetedPreview(view: cell, parameters: parameters, target: target)
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
