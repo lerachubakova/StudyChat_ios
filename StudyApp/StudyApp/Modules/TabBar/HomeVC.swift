@@ -5,6 +5,7 @@
 //  Created by user on 4/26/21.
 //
 
+import PhotosUI
 import UIKit
 
 class HomeVC: BaseVC {
@@ -108,11 +109,26 @@ class HomeVC: BaseVC {
         }
     }
     
+    private func getPhotoOrVideo() {
+        if #available(iOS 14, *) {
+            var config = PHPickerConfiguration()
+            config.selectionLimit = 10
+            config.preferredAssetRepresentationMode = .automatic
+            config.filter = .any(of: [.videos,.images,.livePhotos])
+            let picker = PHPickerViewController(configuration: config)
+            picker.modalPresentationStyle = .fullScreen
+            picker.delegate = self
+            self.present(picker, animated: true)
+        } else {
+            self.showAlertError(by: "Версия вашего iOS не поддерживает выбор фото и видео.\nУстановите обновление")
+        }
+    }
+    
     private func showChoiceAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let photoOfVideoAction = UIAlertAction(title: "Фото или видео", style: .default, handler: {_ in
-           // self.getImage(from: .photoLibrary)
+        let photoOfVideoAction = UIAlertAction(title: "Фото или видео", style: .default, handler: { _ in
+            self.getPhotoOrVideo()
         })
         
         let fileAction = UIAlertAction(title: "Файл", style: .default, handler: {_ in
@@ -303,5 +319,47 @@ extension HomeVC: UITableViewDataSource {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
+    }
+}
+// MARK: - PHPickerVC
+@available(iOS 14, *)
+extension HomeVC: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        
+        let itemProviders: [NSItemProvider] = results.map(\.itemProvider)
+        var imageData:[Data] = []
+        var movieData:[URL] = []
+        
+        func appendMessage() {
+            if imageData.count + movieData.count == itemProviders.count {
+                messages.append(Message(type: .sender, images: imageData, movies: movieData))
+                self.updateTable()
+            }
+        }
+        
+        for provider in itemProviders {
+            if provider.hasItemConformingToTypeIdentifier(UTType.movie.identifier) {
+                provider.loadItem(forTypeIdentifier: UTType.movie.identifier, options: [:]) { videoURL, _ in
+                    DispatchQueue.main.async {
+                        if let url = videoURL as? URL {
+                            movieData.append(url)
+                            appendMessage()
+                        } else { print("PHPickerViewControllerDelegate: movie error") }
+                    }
+                }
+            } else if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
+                provider.loadObject(ofClass: UIImage.self) { image, _ in
+                    DispatchQueue.main.async {
+                        if let image = image as? UIImage {
+                            if let data = image.pngData() {
+                                imageData.append(data)
+                                appendMessage()
+                            }
+                        } else { print("PHPickerViewControllerDelegate: image error") }
+                    }
+                }
+            }
+        }
     }
 }

@@ -15,9 +15,9 @@ enum Type {
 struct Message {
     let type: Type
     let time: Date
-    var text: String
-    var images: Data?
-    var videos: Data?
+    var text: String?
+    var images: [Data]?
+    var movies: [URL]?
     var files: Data?
     var link: URL?
     var wasEdited: Bool
@@ -26,6 +26,14 @@ struct Message {
         self.type = type
         self.time = Date()
         self.text = text
+        self.wasEdited = false
+    }
+    
+    init(type: Type, images: [Data], movies: [URL]) {
+        self.type = type
+        self.time = Date()
+        self.images = images
+        self.movies = movies
         self.wasEdited = false
     }
 }
