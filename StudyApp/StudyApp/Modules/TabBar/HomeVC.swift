@@ -94,6 +94,7 @@ class HomeVC: BaseVC {
         chatTableView.contentInset = UIEdgeInsets(top: 2.5, left: 0, bottom: 2.5, right: 0)
         chatTableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         chatTableView.register(MessageTVCell.nib(), forCellReuseIdentifier: MessageTVCell.identifier)
+        chatTableView.register(PhotoMessageTVCell.nib(), forCellReuseIdentifier: PhotoMessageTVCell.identifier)
     }
 
     private func updateTable() {
@@ -114,7 +115,7 @@ class HomeVC: BaseVC {
             var config = PHPickerConfiguration()
             config.selectionLimit = 10
             config.preferredAssetRepresentationMode = .automatic
-            config.filter = .any(of: [.videos,.images,.livePhotos])
+            config.filter = .any(of: [.images])
             let picker = PHPickerViewController(configuration: config)
             picker.modalPresentationStyle = .fullScreen
             picker.delegate = self
@@ -127,7 +128,7 @@ class HomeVC: BaseVC {
     private func showChoiceAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let photoOfVideoAction = UIAlertAction(title: "Фото или видео", style: .default, handler: { _ in
+        let photoOfVideoAction = UIAlertAction(title: "Фото", style: .default, handler: { _ in
             self.getPhotoOrVideo()
         })
         
@@ -270,12 +271,22 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let messageCell = chatTableView.dequeueReusableCell(withIdentifier: MessageTVCell.identifier) as? MessageTVCell {
-            messageCell.selectionStyle = .none
-            let message = messages[messages.count - 1 - indexPath.row]
-            messageCell.configure(by: message)
-            messageCell.transform = CGAffineTransform(scaleX: 1, y: -1)
-            return messageCell
+        let message = messages[messages.count - 1 - indexPath.row]
+        if message.images != nil || message.movies != nil {
+            if let photoCell = chatTableView.dequeueReusableCell(withIdentifier: PhotoMessageTVCell.identifier) as? PhotoMessageTVCell {
+                photoCell.selectionStyle = .none
+                photoCell.configure(by: message)
+                photoCell.transform = CGAffineTransform(scaleX: 1, y: -1)
+                return photoCell
+            }
+        } else {
+        guard message.text != nil else { return UITableViewCell()}
+            if let messageCell = chatTableView.dequeueReusableCell(withIdentifier: MessageTVCell.identifier) as? MessageTVCell {
+                messageCell.selectionStyle = .none
+                messageCell.configure(by: message)
+                messageCell.transform = CGAffineTransform(scaleX: 1, y: -1)
+                return messageCell
+            }
         }
         return  UITableViewCell()
     }
@@ -341,7 +352,7 @@ extension HomeVC: PHPickerViewControllerDelegate {
         for provider in itemProviders {
             if provider.hasItemConformingToTypeIdentifier(UTType.movie.identifier) {
                 provider.loadItem(forTypeIdentifier: UTType.movie.identifier, options: [:]) { videoURL, _ in
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.sync {
                         if let url = videoURL as? URL {
                             movieData.append(url)
                             appendMessage()
@@ -350,7 +361,7 @@ extension HomeVC: PHPickerViewControllerDelegate {
                 }
             } else if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
                 provider.loadObject(ofClass: UIImage.self) { image, _ in
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.sync {
                         if let image = image as? UIImage {
                             if let data = image.pngData() {
                                 imageData.append(data)

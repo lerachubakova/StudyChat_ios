@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87929E4624E73309076C57C2 /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DA9E5DE047102EC6F6994A /* Pods_StudyApp.framework */; };
 		CE32737A2632ACA5009CBE23 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3273792632ACA5009CBE23 /* UIAlertControllerExtensions.swift */; };
 		CE4D77D02636FE4E00571EE2 /* FullNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */; };
 		CE53ECEC263A9AAD0097FCE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53ECEB263A9AAD0097FCE3 /* User.swift */; };
 		CE53ED01263ADF2E0097FCE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53ED00263ADF2E0097FCE3 /* Message.swift */; };
 		CE53ED07263AE8BF0097FCE3 /* MessageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53ED05263AE8BF0097FCE3 /* MessageTVCell.swift */; };
 		CE53ED08263AE8BF0097FCE3 /* MessageTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE53ED06263AE8BF0097FCE3 /* MessageTVCell.xib */; };
+		CE55F553265B78EB00159B66 /* PhotoMessageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55F551265B78EB00159B66 /* PhotoMessageTVCell.swift */; };
+		CE55F554265B78EB00159B66 /* PhotoMessageTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE55F552265B78EB00159B66 /* PhotoMessageTVCell.xib */; };
 		CE56BA6A26394ABB00AAC3CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56BA6926394ABB00AAC3CF /* BaseVC.swift */; };
 		CE5B99622631AF2200625C38 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */; };
 		CE5B996F2631BA3600625C38 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B996E2631BA3600625C38 /* SignInViewController.swift */; };
@@ -33,18 +36,19 @@
 		CE69C80426314387001656CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80326314387001656CB /* Assets.xcassets */; };
 		CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE69C80526314387001656CB /* LaunchScreen.storyboard */; };
 		CEED04FC26316196008AC20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEED04FB26316196008AC20B /* Main.storyboard */; };
-		E16EABBECE730BFAB61B098F /* Pods_StudyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76E948609DA3945F58990B9 /* Pods_StudyApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B76E948609DA3945F58990B9 /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA240A02717D9B925DCCEE20 /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
+		841491087B5E56121AB78BDB /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CDDDC30782BCF2F7400D913F /* Pods-StudyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.release.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.release.xcconfig"; sourceTree = "<group>"; };
 		CE3273792632ACA5009CBE23 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		CE4D77CF2636FE4E00571EE2 /* FullNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNameVC.swift; sourceTree = "<group>"; };
 		CE53ECEB263A9AAD0097FCE3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE53ED00263ADF2E0097FCE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CE53ED05263AE8BF0097FCE3 /* MessageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVCell.swift; sourceTree = "<group>"; };
 		CE53ED06263AE8BF0097FCE3 /* MessageTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTVCell.xib; sourceTree = "<group>"; };
+		CE55F551265B78EB00159B66 /* PhotoMessageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessageTVCell.swift; sourceTree = "<group>"; };
+		CE55F552265B78EB00159B66 /* PhotoMessageTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoMessageTVCell.xib; sourceTree = "<group>"; };
 		CE56BA6926394ABB00AAC3CF /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		CE5B99612631AF2100625C38 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		CE5B996E2631BA3600625C38 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +71,7 @@
 		CE69C80626314387001656CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE69C80826314387001656CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEED04FB26316196008AC20B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E037B1B72FF27CFB5343C9AC /* Pods-StudyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyApp/Pods-StudyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F1DA9E5DE047102EC6F6994A /* Pods_StudyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,17 +79,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16EABBECE730BFAB61B098F /* Pods_StudyApp.framework in Frameworks */,
+				87929E4624E73309076C57C2 /* Pods_StudyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88714E9918B93EE995F33CFE /* Frameworks */ = {
+		1E3C1B06CB0B7B807D0EF711 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B76E948609DA3945F58990B9 /* Pods_StudyApp.framework */,
+				F1DA9E5DE047102EC6F6994A /* Pods_StudyApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +121,15 @@
 			path = MessageTVCell;
 			sourceTree = "<group>";
 		};
+		CE55F550265B78C400159B66 /* PhotoMessageTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE55F551265B78EB00159B66 /* PhotoMessageTVCell.swift */,
+				CE55F552265B78EB00159B66 /* PhotoMessageTVCell.xib */,
+			);
+			path = PhotoMessageTVCell;
+			sourceTree = "<group>";
+		};
 		CE5B995F2631AEFC00625C38 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				CE53ED04263AE89B0097FCE3 /* MessageTVCell */,
+				CE55F550265B78C400159B66 /* PhotoMessageTVCell */,
 				CE6347E72636A474001F4B15 /* ProfileTVCell */,
 				CE6347E82636A47E001F4B15 /* SettingTVCell */,
 			);
@@ -179,7 +193,7 @@
 				CE69C7F626314385001656CB /* StudyApp */,
 				CE69C7F526314385001656CB /* Products */,
 				D22491D837C2D04297A8C78C /* Pods */,
-				88714E9918B93EE995F33CFE /* Frameworks */,
+				1E3C1B06CB0B7B807D0EF711 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -265,8 +279,8 @@
 		D22491D837C2D04297A8C78C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E037B1B72FF27CFB5343C9AC /* Pods-StudyApp.debug.xcconfig */,
-				BA240A02717D9B925DCCEE20 /* Pods-StudyApp.release.xcconfig */,
+				841491087B5E56121AB78BDB /* Pods-StudyApp.debug.xcconfig */,
+				CDDDC30782BCF2F7400D913F /* Pods-StudyApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -278,12 +292,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE69C80B26314387001656CB /* Build configuration list for PBXNativeTarget "StudyApp" */;
 			buildPhases = (
-				640A1602C4C9BE2AD329233E /* [CP] Check Pods Manifest.lock */,
+				377905B2B5E49A013DFEC727 /* [CP] Check Pods Manifest.lock */,
 				CE69C814263148B2001656CB /* Run Script */,
 				CE69C7F026314385001656CB /* Sources */,
 				CE69C7F126314385001656CB /* Frameworks */,
 				CE69C7F226314385001656CB /* Resources */,
-				876A58F406EB3B7C0C4892F0 /* [CP] Embed Pods Frameworks */,
+				A1A209C16FC4998FC48DD049 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -332,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE69C80726314387001656CB /* LaunchScreen.storyboard in Resources */,
+				CE55F554265B78EB00159B66 /* PhotoMessageTVCell.xib in Resources */,
 				CE53ED08263AE8BF0097FCE3 /* MessageTVCell.xib in Resources */,
 				CE6347F22636A4D3001F4B15 /* ProfileTVCell.xib in Resources */,
 				CE69C80426314387001656CB /* Assets.xcassets in Resources */,
@@ -345,7 +360,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		640A1602C4C9BE2AD329233E /* [CP] Check Pods Manifest.lock */ = {
+		377905B2B5E49A013DFEC727 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,7 +382,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		876A58F406EB3B7C0C4892F0 /* [CP] Embed Pods Frameworks */ = {
+		A1A209C16FC4998FC48DD049 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,6 +434,7 @@
 				CE53ED07263AE8BF0097FCE3 /* MessageTVCell.swift in Sources */,
 				CE6347F12636A4D3001F4B15 /* ProfileTVCell.swift in Sources */,
 				CE6347EB2636A4B9001F4B15 /* SettingTVCell.swift in Sources */,
+				CE55F553265B78EB00159B66 /* PhotoMessageTVCell.swift in Sources */,
 				CE6347D3263686EE001F4B15 /* HomeVC.swift in Sources */,
 				CE32737A2632ACA5009CBE23 /* UIAlertControllerExtensions.swift in Sources */,
 				CE5B996F2631BA3600625C38 /* SignInViewController.swift in Sources */,
@@ -570,7 +586,7 @@
 		};
 		CE69C80C26314387001656CB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E037B1B72FF27CFB5343C9AC /* Pods-StudyApp.debug.xcconfig */;
+			baseConfigurationReference = 841491087B5E56121AB78BDB /* Pods-StudyApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -591,7 +607,7 @@
 		};
 		CE69C80D26314387001656CB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA240A02717D9B925DCCEE20 /* Pods-StudyApp.release.xcconfig */;
+			baseConfigurationReference = CDDDC30782BCF2F7400D913F /* Pods-StudyApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
